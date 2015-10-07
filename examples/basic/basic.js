@@ -10,7 +10,10 @@ class Basic extends Component {
         <div className="row">
           <div className="col-xs-12">
             <h1>React Bootstrap DateTimePicker</h1>
-            This project is a port of <a href="https://github.com/Eonasdan/bootstrap-datetimepicker">https://github.com/Eonasdan/bootstrap-datetimepicker</a> for React.js
+            This project is a port of 
+            <a href="https://github.com/Eonasdan/bootstrap-datetimepicker">
+              https://github.com/Eonasdan/bootstrap-datetimepicker
+            </a> for React.js
           </div>
         </div>
         <div className="row">
@@ -121,9 +124,18 @@ class Basic extends Component {
               />
               <pre> {'<DateTimeField mode="date" />'} </pre>
             </div>
+            <div className="row">
+              <div className="col-xs-12">
+                Side by side datetime hours picker
+                <DateTimeField
+                  mode="datetime-side"
+                />
+                <pre> {'<DateTimePickerHoursSide />'} </pre>
+              </div>
+            </div>
           </div>
         </div>
-    );
+      );
    }
 }
 
