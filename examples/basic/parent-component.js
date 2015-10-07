@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import DateTimeField from "react-bootstrap-datetimepicker";
 
-class ParentComponent extends Component {
+export default class ParentComponent extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -29,5 +29,3 @@ class ParentComponent extends Component {
     );
   }
 }
-
-module.exports = ParentComponent;
