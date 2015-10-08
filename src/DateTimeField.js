@@ -12,9 +12,7 @@ export default class DateTimeField extends Component {
     viewMode: "days",
     daysOfWeekDisabled: [],
     mode: Constants.MODE_DATETIME,
-    onChange: (x) => {
-      console.log(x);
-    }
+    onChange: (x) => { }
   }
 
   resolvePropsInputFormat = () => {
@@ -272,7 +270,7 @@ export default class DateTimeField extends Component {
       classes = {
         "bootstrap-datetimepicker-widget": true,
         "dropdown-menu": true,
-        "boostrap-datetimepicker-wide": this.props.mode === Constants.MODE_DATETIME_SIDE
+        "bootstrap-datetimepicker-widget-wide": this.props.mode === Constants.MODE_DATETIME_SIDE
       };
       offset = {
         top: gBCR.top + window.pageYOffset - document.documentElement.clientTop,
