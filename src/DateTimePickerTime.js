@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
 import DateTimePickerMinutes from "./DateTimePickerMinutes";
 import DateTimePickerHours from "./DateTimePickerHours";
+import DateTimePickerHoursSide from './DateTimePickerHoursSide';
 import Constants from "./Constants.js";
 
 export default class DateTimePickerTime extends Component {
@@ -15,7 +16,12 @@ export default class DateTimePickerTime extends Component {
     viewDate: PropTypes.object.isRequired,
     selectedDate: PropTypes.object.isRequired,
     togglePeriod: PropTypes.func.isRequired,
-    mode: PropTypes.oneOf([Constants.MODE_DATE, Constants.MODE_DATETIME, Constants.MODE_TIME])
+    mode: PropTypes.oneOf([
+      Constants.MODE_DATE,
+      Constants.MODE_DATETIME,
+      Constants.MODE_TIME,
+      Constants.MODE_DATETIME_SIDE
+    ])
   }
 
   state = {

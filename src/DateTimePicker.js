@@ -52,6 +52,7 @@ export default class DateTimePicker extends Component {
     if (!this.props.showDatePicker) {
       return null;
     }
+
     return (
       <li>
         <DateTimePickerDate
