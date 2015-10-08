@@ -5,7 +5,7 @@ import DateTimePickerDate from "./DateTimePickerDate.js";
 import DateTimePickerTime from "./DateTimePickerTime.js";
 import DateTimePickerHoursSide from './DateTimePickerHours.js';
 import HourSelectionPanel from './HourSelectionPanel.js'
-import Constants from "./Constants.js";
+import Constants from "../constants/Constants.js";
 
 export default class DateTimePicker extends Component {
   static propTypes = {

@@ -1,9 +1,12 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 import { Glyphicon } from "react-bootstrap";
-import DateTimePicker from "./DateTimePicker.js";
-import Constants from "./Constants.js";
+import styles from './css/styles.css';
+import CSSModules from 'react-css-modules';
+import DateTimePicker from "./components/DateTimePicker.js";
+import Constants from "./constants/Constants.js";
 
+@CSSModules(styles)
 export default class DateTimeField extends Component {
   static defaultProps = {
     dateTime: moment().format("x"),
@@ -269,8 +272,7 @@ export default class DateTimeField extends Component {
       gBCR = this.refs.dtpbutton.getDOMNode().getBoundingClientRect();
       classes = {
         "bootstrap-datetimepicker-widget": true,
-        "dropdown-menu": true,
-        "bootstrap-datetimepicker-widget-wide": this.props.mode === Constants.MODE_DATETIME_SIDE
+        "dropdown-menu": true
       };
       offset = {
         top: gBCR.top + window.pageYOffset - document.documentElement.clientTop,

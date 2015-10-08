@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
-import Constants from "./Constants.js";
+import Constants from "../constants/Constants.js";
 
 export default class DateTimePickerHoursSide extends Component {
   static propTypes = {
