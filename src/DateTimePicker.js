@@ -116,7 +116,7 @@ export default class DateTimePicker extends Component {
   }
 
   renderSideTimePicker = () => {
-    if (!this.props.mode === Constants.MODE_DATETIME_SIDE) {
+    if (this.props.mode !== Constants.MODE_DATETIME_SIDE) {
       return null;
     }
     return (
