@@ -124,14 +124,14 @@ class Basic extends Component {
               />
               <pre> {'<DateTimeField mode="date" />'} </pre>
             </div>
-            <div className="row">
-              <div className="col-xs-12">
-                Side by side datetime hours picker
-                <DateTimeField
-                  mode="datetime-side"
-                />
-                <pre> {'<DateTimePickerHoursSide />'} </pre>
-              </div>
+          </div>
+          <div className="row">
+            <div className="col-xs-12">
+              Side by side datetime hours picker
+              <DateTimeField
+                mode="datetime-side"
+              />
+              <pre> {'<DateTimeField mode="datetime-side" />'} </pre>
             </div>
           </div>
         </div>
