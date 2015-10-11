@@ -1,6 +1,7 @@
-import React, { Component, PropTypes } from "react";
+import { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
 import Constants from "../constants/Constants.js";
+import DateTimeModeSwitch from '../components/date-time-switcher/date-time-mode-switch.js'
 
 export default class DateTimePickerHours extends Component {
   static propTypes = {
@@ -11,14 +12,7 @@ export default class DateTimePickerHours extends Component {
 
   renderSwitchButton = () => {
     return this.props.mode === Constants.MODE_TIME ?
-        (
-            <ul className="list-unstyled">
-              <li>
-                <span className="btn picker-switch" style={{width: "100%"}} onClick={this.props.onSwitch}><Glyphicon glyph="time" /></span>
-              </li>
-            </ul>
-        ) :
-        null;
+      <DateTimeModeSwitch onSwitch={this.props.onSwitch} /> : null;
   }
 
   render() {

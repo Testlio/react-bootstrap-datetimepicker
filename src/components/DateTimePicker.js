@@ -5,11 +5,9 @@ import DateTimePickerDate from "./DateTimePickerDate.js";
 import DateTimePickerTime from "./DateTimePickerTime.js";
 import DateTimePickerHoursSide from './DateTimePickerHours.js';
 import HourSelectionPanel from './HourSelectionPanel.js'
+import DateTimeModeSwitch from './date-time-switcher/date-time-mode-switch.js'
 import Constants from "../constants/Constants.js";
-import CSSModules from 'react-css-modules';
-import styles from '../css/datetime-picker.css';
 
-@CSSModules(styles)
 export default class DateTimePicker extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
@@ -104,19 +102,8 @@ export default class DateTimePicker extends Component {
   }
 
   renderSwitchButton = () => {
-    if (this.props.mode !== Constants.MODE_DATETIME) {
-      return null;
-    }
-    return (
-      <li>
-        <span 
-          className="btn" 
-          styleName="picker-switch"
-          onClick={this.props.togglePicker}><Glyphicon 
-            glyph={this.props.showTimePicker ? "calendar" : "time"} />
-        </span>
-      </li>
-    );
+      return this.props.mode !== Constants.MODE_DATETIME ?
+        <DateTimeModeSwitch onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> : null;
   }
 
   renderSideTimePicker = () => {
@@ -134,8 +121,8 @@ export default class DateTimePicker extends Component {
     return (
       <div className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
         <ul className="list-unstyled">
-          {this.renderDatePicker()}
           {this.renderSwitchButton()}
+          {this.renderDatePicker()}
           {this.renderSideTimePicker()}
           {this.renderTimePicker()}
         </ul>
