@@ -86,9 +86,6 @@
 .bootstrap-datetimepicker-widget .datepicker > div {
   display: none;
 }
-.bootstrap-datetimepicker-widget .picker-switch {
-  text-align: center;
-}
 .bootstrap-datetimepicker-widget table {
   width: 100%;
   margin: 0;

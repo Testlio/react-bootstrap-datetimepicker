@@ -7,7 +7,10 @@ import DateTimePickerHoursSide from './DateTimePickerHours.js';
 import HourSelectionPanel from './HourSelectionPanel.js'
 import DateTimeModeSwitch from './date-time-switcher/date-time-mode-switch.js'
 import Constants from "../constants/Constants.js";
-
+import styles from '../css/date-time-picker.css';
+import CSSModules from 'react-css-modules';
+ 
+@CSSModules(styles)
 export default class DateTimePicker extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
@@ -119,7 +122,7 @@ export default class DateTimePicker extends Component {
 
   render() {
     return (
-      <div className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
+      <div styleName="bootstrap-datetimepicker-widget" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
         <ul className="list-unstyled">
           {this.renderSwitchButton()}
           {this.renderDatePicker()}
