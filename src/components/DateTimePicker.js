@@ -6,7 +6,10 @@ import DateTimePickerTime from "./DateTimePickerTime.js";
 import DateTimePickerHoursSide from './DateTimePickerHours.js';
 import HourSelectionPanel from './HourSelectionPanel.js'
 import Constants from "../constants/Constants.js";
+import CSSModules from 'react-css-modules';
+import styles from '../css/datetime-picker.css';
 
+@CSSModules(styles)
 export default class DateTimePicker extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
@@ -107,8 +110,8 @@ export default class DateTimePicker extends Component {
     return (
       <li>
         <span 
-          className="btn picker-switch" 
-          style={{width: "100%"}} 
+          className="btn" 
+          styleName="picker-switch"
           onClick={this.props.togglePicker}><Glyphicon 
             glyph={this.props.showTimePicker ? "calendar" : "time"} />
         </span>
