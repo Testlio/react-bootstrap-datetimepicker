@@ -5,7 +5,7 @@ import DateTimePickerDate from "./DateTimePickerDate.js";
 import DateTimePickerTime from "./DateTimePickerTime.js";
 import DateTimePickerHoursSide from './DateTimePickerHours.js';
 import HourSelectionPanel from './HourSelectionPanel.js'
-import DateTimeModeSwitch from './date-time-switcher/date-time-mode-switch.js'
+import ModeSwitcher from './mode-switcher/mode-switcher.js'
 import Constants from "../constants/Constants.js";
 import styles from '../css/date-time-picker.css';
 import CSSModules from 'react-css-modules';
@@ -106,7 +106,7 @@ export default class DateTimePicker extends Component {
 
   renderSwitchButton = () => {
       return this.props.mode !== Constants.MODE_DATETIME ?
-        <DateTimeModeSwitch onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> : null;
+        <ModeSwitcher onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> : null;
   }
 
   renderSideTimePicker = () => {
