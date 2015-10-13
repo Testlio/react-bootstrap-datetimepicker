@@ -56,9 +56,6 @@
   bottom: -6px;
   left: 7px;
 }
-.widget .dow {
-  width: 14.2857%;
-}
 .widget.pull-right:before {
   left: auto;
   right: 6px;
@@ -181,12 +178,6 @@
 }
 .widget thead tr:first-child th:hover {
   background: #eeeeee;
-}
-.input-group.date .input-group-addon span {
-  display: block;
-  cursor: pointer;
-  width: 16px;
-  height: 16px;
 }
 .widget ul.list-unstyled li div.timepicker div.timepicker-picker table.table-condensed tbody > tr > td {
   padding: 0px !important;
