@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
 import classnames from "classnames";
-import DateTimePickerDate from "./DateTimePickerDate.js";
-import DateTimePickerTime from "./DateTimePickerTime.js";
-import DateTimePickerHoursSide from './DateTimePickerHours.js';
-import HourSelectionPanel from './HourSelectionPanel.js'
-import ModeSwitcher from './mode-switcher/mode-switcher.js'
-import Constants from "../constants/Constants.js";
-import styles from '../css/date-time-picker.css';
+import DateTimePickerDate from "./components/DateTimePickerDate.js";
+import DateTimePickerTime from "./components/DateTimePickerTime.js";
+import DateTimePickerHoursSide from './components/DateTimePickerHours.js';
+import HourSelectionPanel from './components/hour-selection-panel/hour-selection-panel.js'
+import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
+import Constants from "./constants/Constants.js";
+import styles from './css/date-time-picker.css';
 import CSSModules from 'react-css-modules';
  
 @CSSModules(styles)
@@ -106,7 +106,10 @@ export default class DateTimePicker extends Component {
 
   renderSwitchButton = () => {
       return this.props.mode !== Constants.MODE_DATETIME ?
-        <ModeSwitcher onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> : null;
+        <ModeSwitcher 
+          onSwitch={this.props.togglePicker} 
+          showTimePicker={this.props.showTimePicker} /> 
+       : null;
   }
 
   renderSideTimePicker = () => {
@@ -122,7 +125,11 @@ export default class DateTimePicker extends Component {
 
   render() {
     return (
-      <div styleName="bootstrap-datetimepicker-widget" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
+      <div 
+        styleName="bootstrap-datetimepicker-widget" 
+        className={classnames(this.props.widgetClasses)} 
+        style={this.props.widgetStyle}
+        >
         <ul className="list-unstyled">
           {this.renderSwitchButton()}
           {this.renderDatePicker()}

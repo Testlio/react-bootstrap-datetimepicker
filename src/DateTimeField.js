@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 import { Glyphicon } from "react-bootstrap";
-import DateTimePicker from "./components/DateTimePicker.js";
+import DateTimePicker from "./DateTimePicker.js";
 import Constants from "./constants/Constants.js";
 
 export default class DateTimeField extends Component {
