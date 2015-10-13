@@ -34,12 +34,14 @@ export default class Basic extends Component {
         <div className="row">
           <div className="col-xs-12">
             Example with default Text
+            <DateTimeField defaultText="Please select a date" />
             <pre> {'<DateTimeField defaultText="Please select a date" />'} </pre>
           </div>
         </div>
         <div className="row">
           <div className="col-xs-12">
             ViewMode set to years view with custom inputFormat
+            <DateTimeField viewMode="years" inputFormat="DD-MM-YYYY" />
             <pre> {'<DateTimeField viewMode="years" inputFormat="DD-MM-YYYY" />'} </pre>
           </div>
         </div>
