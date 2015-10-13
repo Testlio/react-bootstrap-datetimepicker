@@ -160,13 +160,6 @@
   color: #999999;
   cursor: not-allowed;
 }
-.widget th.switch {
-  width: 145px;
-}
-.widget th.next,
-.widget th.prev {
-  font-size: 21px;
-}
 .widget th.disabled,
 .widget th.disabled:hover {
   background: none;

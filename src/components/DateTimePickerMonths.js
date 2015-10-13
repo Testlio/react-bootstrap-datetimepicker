@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from "react";
 import classnames from "classnames";
 import moment from "moment";
 
+import NextPrevChanger from "./next-prev-changer/next-prev-changer.js"
+
 export default class DateTimePickerMonths extends Component {
   static propTypes = {
     subtractYear: PropTypes.func.isRequired,
@@ -34,13 +36,12 @@ export default class DateTimePickerMonths extends Component {
     <div className="datepicker-months" style={{display: "block"}}>
           <table className="table-condensed">
             <thead>
-              <tr>
-                <th className="prev" onClick={this.props.subtractYear}>‹</th>
-
-                <th className="switch" colSpan="5" onClick={this.props.showYears}>{this.props.viewDate.year()}</th>
-
-                <th className="next" onClick={this.props.addYear}>›</th>
-              </tr>
+              <NextPrevChanger
+                onClickNext={this.props.addYear}
+                onClickPrev={this.props.subtractYear}
+                onClickCurrent={this.props.showYears}>
+                {this.props.viewDate.year()}
+              </NextPrevChanger>
             </thead>
 
             <tbody>
@@ -53,4 +54,3 @@ export default class DateTimePickerMonths extends Component {
     );
   }
 }
-

@@ -3,6 +3,7 @@ import moment from "moment";
 import classnames from "classnames";
 import styles from '../css/date-time-picker-days.css';
 import CSSModules from 'react-css-modules';
+import NextPrevChanger from './next-prev-changer/next-prev-changer.js'
  
 @CSSModules(styles)
 export default class DateTimePickerDays extends Component {
@@ -76,16 +77,12 @@ export default class DateTimePickerDays extends Component {
       <div styleName="base">
         <table className="table-condensed">
           <thead>
-            <tr>
-              <th 
-                className="prev" 
-                onClick={this.props.subtractMonth}>‹</th>
-              <th 
-                className="switch" 
-                colSpan="5" 
-                onClick={this.props.showMonths}>{moment.months()[this.props.viewDate.month()]} {this.props.viewDate.year()}</th>
-              <th className="next" onClick={this.props.addMonth}>›</th>
-            </tr>
+            <NextPrevChanger
+                onClickCurrent={this.props.showMonths}
+                onClickNext={this.props.addMonth}
+                onClickPrev={this.props.subtractMonth}>
+              {moment.months()[this.props.viewDate.month()]} {this.props.viewDate.year()}
+            </NextPrevChanger>
             <tr styleName="day-of-week">
               <th>Su</th>
               <th>Mo</th>
