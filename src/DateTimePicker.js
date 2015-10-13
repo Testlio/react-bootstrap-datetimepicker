@@ -10,7 +10,7 @@ import Constants from "./constants/Constants.js";
 import styles from './css/date-time-picker.css';
 import CSSModules from 'react-css-modules';
  
-@CSSModules(styles)
+@CSSModules(styles, { allowMultiple: true })
 export default class DateTimePicker extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
@@ -124,9 +124,13 @@ export default class DateTimePicker extends Component {
   }
 
   render() {
+    let styleNames = [ "widget" ];
+    if (this.props.mode === Constants.MODE_DATETIME_SIDE) {
+      styleNames.push('wide');
+    }
     return (
       <div 
-        styleName="bootstrap-datetimepicker-widget" 
+        styleName={styleNames.join(' ')}
         className={classnames(this.props.widgetClasses)} 
         style={this.props.widgetStyle}
         >
