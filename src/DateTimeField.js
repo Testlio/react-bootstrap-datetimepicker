@@ -80,8 +80,6 @@ export default class DateTimeField extends Component {
     return this.setState(state);
   }
 
-
-
   onChange = (event) => {
     const value = event.target == null ? event : event.target.value;
     const state = this.state;

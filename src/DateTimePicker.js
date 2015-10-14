@@ -104,8 +104,8 @@ export default class DateTimePicker extends Component {
   }
 
   renderSwitchButton = () => {
-    if (this.props.mode === Constants.MODE_DATETIME) {
-      return  null
+    if (this.props.mode === Constants.MODE_DATETIME || this.props.mode === Constants.MODE_DATETIME_SIDE) {
+      return null
     }
     return (
       <ModeSwitcher 
