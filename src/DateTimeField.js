@@ -327,56 +327,65 @@ export default class DateTimeField extends Component {
     }
   }
 
+  renderDateTimePicker() {
+    if (!this.state.showPicker) {
+      return null;
+    }
+    return (
+      <DateTimePicker ref="widget"
+        addDecade={this.addDecade}
+        addHour={this.addHour}
+        addMinute={this.addMinute}
+        addMonth={this.addMonth}
+        addYear={this.addYear}
+        daysOfWeekDisabled={this.props.daysOfWeekDisabled}
+        maxDate={this.props.maxDate}
+        minDate={this.props.minDate}
+        mode={this.props.mode}
+        selectedDate={this.state.selectedDate}
+        setSelectedDate={this.setSelectedDate}
+        setSelectedHour={this.setSelectedHour}
+        setSelectedMinute={this.setSelectedMinute}
+        setViewMonth={this.setViewMonth}
+        setViewYear={this.setViewYear}
+        showDatePicker={this.state.showDatePicker}
+        showDateTimePicker={this.state.showDateTimePicker}
+        showTimePicker={this.state.showTimePicker}
+        showToday={this.props.showToday}
+        subtractDecade={this.subtractDecade}
+        subtractHour={this.subtractHour}
+        subtractMinute={this.subtractMinute}
+        subtractMonth={this.subtractMonth}
+        subtractYear={this.subtractYear}
+        togglePeriod={this.togglePeriod}
+        togglePicker={this.togglePicker}
+        viewDate={this.state.viewDate}
+        viewMode={this.props.viewMode}
+        widgetClasses={this.state.widgetClasses}
+        widgetStyle={this.state.widgetStyle}
+      />
+    );
+  }
+
   render() {
     return (
-          <div>
-            {this.renderOverlay()}
-            <DateTimePicker ref="widget"
-                  addDecade={this.addDecade}
-                  addHour={this.addHour}
-                  addMinute={this.addMinute}
-                  addMonth={this.addMonth}
-                  addYear={this.addYear}
-                  daysOfWeekDisabled={this.props.daysOfWeekDisabled}
-                  maxDate={this.props.maxDate}
-                  minDate={this.props.minDate}
-                  mode={this.props.mode}
-                  selectedDate={this.state.selectedDate}
-                  setSelectedDate={this.setSelectedDate}
-                  setSelectedHour={this.setSelectedHour}
-                  setSelectedMinute={this.setSelectedMinute}
-                  setViewMonth={this.setViewMonth}
-                  setViewYear={this.setViewYear}
-                  showDatePicker={this.state.showDatePicker}
-                  showDateTimePicker={this.state.showDateTimePicker}
-                  showTimePicker={this.state.showTimePicker}
-                  showToday={this.props.showToday}
-                  subtractDecade={this.subtractDecade}
-                  subtractHour={this.subtractHour}
-                  subtractMinute={this.subtractMinute}
-                  subtractMonth={this.subtractMonth}
-                  subtractYear={this.subtractYear}
-                  togglePeriod={this.togglePeriod}
-                  togglePicker={this.togglePicker}
-                  viewDate={this.state.viewDate}
-                  viewMode={this.props.viewMode}
-                  widgetClasses={this.state.widgetClasses}
-                  widgetStyle={this.state.widgetStyle}
-            />
-            <div className="input-group date" ref="datetimepicker">
-              <input 
-                type="text" 
-                className="form-control" 
-                onChange={this.onChange} 
-                value={this.state.inputValue} {...this.props.inputProps}/>
-              <span 
-                className="input-group-addon" 
-                onClick={this.onClick} 
-                onBlur={this.onBlur} 
-                ref="dtpbutton">
-                  <Glyphicon glyph={this.state.buttonIcon} /></span>
-            </div>
-          </div>
+      <div>
+        { this.renderOverlay() }
+        { this.renderDateTimePicker() }
+        <div className="input-group date" ref="datetimepicker">
+          <input 
+            type="text" 
+            className="form-control" 
+            onChange={this.onChange} 
+            value={this.state.inputValue} {...this.props.inputProps}/>
+          <span 
+            className="input-group-addon" 
+            onClick={this.onClick} 
+            onBlur={this.onBlur} 
+            ref="dtpbutton">
+            <Glyphicon glyph={this.state.buttonIcon} /></span>
+        </div>
+      </div>
     );
   }
 }
