@@ -1,8 +1,13 @@
 import React, { Component, PropTypes } from "react";
-import DateTimePickerDays from "../DateTimePickerDays";
-import DateTimePickerMonths from "../DateTimePickerMonths";
-import DateTimePickerYears from "../DateTimePickerYears";
+import classnames from "classnames";
+import CSSModules from 'react-css-modules';
 
+import DateTimePickerDays from "./components/DateTimePickerDays";
+import DateTimePickerMonths from "./components/DateTimePickerMonths";
+import DateTimePickerYears from "./components/DateTimePickerYears";
+import styles from './css/date-time-picker.css';
+
+@CSSModules(styles, { allowMultiple: true })
 export default class DatePicker extends Component {
   static propTypes = {
     subtractMonth: PropTypes.func.isRequired,
@@ -135,10 +140,20 @@ export default class DatePicker extends Component {
 
   render() {
     return (
-      <div className="datepicker">
-        {this.renderDays()}
-        {this.renderMonths()}
-        {this.renderYears()}
+      <div 
+        styleName="widget"
+        className={classnames(this.props.widgetClasses)} 
+        style={this.props.widgetStyle}
+        >
+        <ul className="list-unstyled">
+          <li>
+            <div className="datepicker">
+              {this.renderDays()}
+              {this.renderMonths()}
+              {this.renderYears()}
+            </div>
+          </li>
+        </ul>
       </div>
     );
   }
