@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
-import DateTimePickerMinutes from "./DateTimePickerMinutes";
-import DateTimePickerHours from "./DateTimePickerHours";
-import DateTimePickerHoursSide from './DateTimePickerHoursSide';
-import Constants from "../constants/Constants.js";
+import DateTimePickerMinutes from "../DateTimePickerMinutes";
+import DateTimePickerHours from "../DateTimePickerHours";
+import DateTimePickerHoursSide from '../DateTimePickerHoursSide';
+import Constants from "../../constants/Constants.js";
 
-export default class DateTimePickerTime extends Component {
+export default class Timepicker extends Component {
   static propTypes = {
     setSelectedHour: PropTypes.func.isRequired,
     setSelectedMinute: PropTypes.func.isRequired,
@@ -122,5 +122,3 @@ export default class DateTimePickerTime extends Component {
     );
   }
 }
-
-module.exports = DateTimePickerTime;

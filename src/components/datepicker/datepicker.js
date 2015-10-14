@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from "react";
-import DateTimePickerDays from "./DateTimePickerDays";
-import DateTimePickerMonths from "./DateTimePickerMonths";
-import DateTimePickerYears from "./DateTimePickerYears";
+import DateTimePickerDays from "../DateTimePickerDays";
+import DateTimePickerMonths from "../DateTimePickerMonths";
+import DateTimePickerYears from "../DateTimePickerYears";
 
-export default class DateTimePickerDate extends Component {
+export default class DatePicker extends Component {
   static propTypes = {
     subtractMonth: PropTypes.func.isRequired,
     addMonth: PropTypes.func.isRequired,
@@ -45,7 +45,8 @@ export default class DateTimePickerDate extends Component {
         yearsDisplayed: true
       }
     };
-    this.state = viewModes[this.props.viewMode] || viewModes[Object.keys(viewModes)[this.props.viewMode]] || viewModes.days;
+    let viewMode = this.props.viewMode
+    this.state = viewModes[viewMode] || viewModes[Object.keys(viewModes)[viewMode]] || viewModes.days;
   }
 
   showMonths = () => {
@@ -134,13 +135,11 @@ export default class DateTimePickerDate extends Component {
 
   render() {
     return (
-    <div className="datepicker">
-      {this.renderDays()}
-
-      {this.renderMonths()}
-
-      {this.renderYears()}
-    </div>
+      <div className="datepicker">
+        {this.renderDays()}
+        {this.renderMonths()}
+        {this.renderYears()}
+      </div>
     );
   }
 }
