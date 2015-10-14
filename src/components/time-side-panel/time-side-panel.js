@@ -7,11 +7,31 @@ import convertToAmPm from '../../lib/convert-military-time-to-ampm.js'
 
 @CSSModules(styles)
 export default class TimeSidePanel extends Component {
+  static propTypes = {
+    timesShown: PropTypes.array
+  }
+
+  state = {
+    selectedTime: null
+  }
+
+  onSelectTime(time) {
+    this.setState({selectedTime : time});
+  }
+    
   renderTimes = () => {
     let i = 0
     let result = [];
     while (i++ < 24) {
-      result.push(<li key={i}>{convertToAmPm(i)}</li>);
+      result.push(
+        <li 
+          key={i}
+          styleName={this.state.selectedTime === i ? 'selected' : ''} >
+          <btn 
+            className="btn btn-link"
+            onClick={this.onSelectTime.bind(this, i)}>{convertToAmPm(i)}</btn>
+        </li>
+      );
     }
     return result;
   }

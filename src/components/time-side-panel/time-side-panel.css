@@ -1,3 +1,7 @@
 .side-panel li {
   padding-left: 20px;
 }
+
+.selected {
+  background: #000;
+}
