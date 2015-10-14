@@ -5,3 +5,39 @@
 .base { 
   display: block;
 }
+
+.disabled:hover,
+.disabled {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.active.today:before {
+  border-bottom-color: #fff;
+}
+
+.today:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid #428bca;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+.today {
+  position: relative;
+}
+
+.day:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+
+.old,
+.new {
+  color: #999999;
+}

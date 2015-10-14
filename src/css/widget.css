@@ -5,16 +5,16 @@
 .widget {
   top: 0;
   left: 0;
-  width: 250px;
   margin-top: 1px;
   z-index: 99999 !important;
   border-radius: 4px;
-  height: 280px;
   padding: 15px;
 }
+
 .widget.timepicker-sbs {
   width: 600px;
 }
+
 .widget.bottom:before {
   content: '';
   display: inline-block;
@@ -95,29 +95,11 @@
   height: 20px;
   border-radius: 4px;
 }
-.widget td.day:hover,
 .widget td.hour:hover,
 .widget td.minute:hover,
 .widget td.second:hover {
   background: #eeeeee;
   cursor: pointer;
-}
-.widget td.old,
-.widget td.new {
-  color: #999999;
-}
-.widget td.today {
-  position: relative;
-}
-.widget td.today:before {
-  content: '';
-  display: inline-block;
-  border-left: 7px solid transparent;
-  border-bottom: 7px solid #428bca;
-  border-top-color: rgba(0, 0, 0, 0.2);
-  position: absolute;
-  bottom: 4px;
-  right: 4px;
 }
 .widget td.active,
 .widget td.active:hover {
@@ -125,15 +107,14 @@
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
-.widget td.active.today:before {
-  border-bottom-color: #fff;
-}
+
 .widget td.disabled,
 .widget td.disabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
 }
+
 .widget td span {
   display: block;
   width: 47px;
@@ -144,41 +125,50 @@
   cursor: pointer;
   border-radius: 4px;
 }
+
 .widget td span:hover {
   background: #eeeeee;
 }
+
 .widget td span.active {
   background-color: #428bca;
   color: #fff;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
+
 .widget td span.old {
   color: #999999;
 }
+
 .widget td span.disabled,
 .widget td span.disabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
 }
+
 .widget th.disabled,
 .widget th.disabled:hover {
   background: none;
   color: #999999;
   cursor: not-allowed;
 }
+
 .widget thead tr:first-child th {
   cursor: pointer;
 }
+
 .widget thead tr:first-child th:hover {
   background: #eeeeee;
 }
+
 .widget ul.list-unstyled li div.timepicker div.timepicker-picker table.table-condensed tbody > tr > td {
   padding: 0px !important;
 }
 
-.wide {
+.widget.wide {
   width: 420px;
+  height: 280px;
 }
 
 .right-side {

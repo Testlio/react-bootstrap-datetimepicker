@@ -5,7 +5,7 @@ import styles from '../css/date-time-picker-days.css';
 import CSSModules from 'react-css-modules';
 import NextPrevChanger from './next-prev-changer/next-prev-changer.js'
  
-@CSSModules(styles)
+@CSSModules(styles, { allowMultiple: true })
 export default class DateTimePickerDays extends Component {
   static propTypes = {
     subtractMonth: PropTypes.func.isRequired,
@@ -25,7 +25,7 @@ export default class DateTimePickerDays extends Component {
   }
 
   renderDays = () => {
-    var cells, classes, days, html, month, nextMonth, prevMonth, minDate, maxDate, row, year;
+    var cells, days, html, month, nextMonth, prevMonth, minDate, maxDate, row, year;
     year = this.props.viewDate.year();
     month = this.props.viewDate.month();
     prevMonth = this.props.viewDate.clone().subtract(1, "months");
@@ -37,7 +37,7 @@ export default class DateTimePickerDays extends Component {
     html = [];
     cells = [];
     while (prevMonth.isBefore(nextMonth)) {
-      classes = {
+      let classes = {
         day: true
       };
       if (prevMonth.year() < year || (prevMonth.year() === year && prevMonth.month() < month)) {
@@ -61,7 +61,12 @@ export default class DateTimePickerDays extends Component {
         classes.disabled = true;
       }
       if (this.props.daysOfWeekDisabled.length > 0) classes.disabled = this.props.daysOfWeekDisabled.indexOf(prevMonth.day()) !== -1;
-      cells.push(<td key={prevMonth.month() + "-" + prevMonth.date()} className={classnames(classes)} onClick={this.props.setSelectedDate}>{prevMonth.date()}</td>);
+      cells.push(
+        <td key={prevMonth.month() + "-" + prevMonth.date()} 
+            className={classnames(classes)} 
+            styleName={classnames(classes)}
+            onClick={this.props.setSelectedDate}>{prevMonth.date()}</td>
+      );
       if (prevMonth.weekday() === moment().endOf("week").weekday()) {
         row = <tr key={prevMonth.month() + "-" + prevMonth.date()}>{cells}</tr>;
         html.push(row);
