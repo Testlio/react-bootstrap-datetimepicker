@@ -9,6 +9,8 @@
   margin-top: 1px;
   z-index: 99999 !important;
   border-radius: 4px;
+  height: 280px;
+  padding: 15px;
 }
 .widget.timepicker-sbs {
   width: 600px;
@@ -176,5 +178,14 @@
 }
 
 .wide {
-  width: 500px;
+  width: 420px;
+}
+
+.right-side {
+  margin-top: 5px;
+  padding: 5px;
+  float: right;
+  width: 125px;
+  overflow: auto;
+  height: 240px;
 }

@@ -1,14 +1,14 @@
 import React, { Component, PropTypes } from "react";
-import { Glyphicon } from "react-bootstrap";
 import classnames from "classnames";
 import CSSModules from 'react-css-modules';
 
 import DatePicker from "./datepicker.js";
 import TimePicker from "./timepicker.js";
+import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
 import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
 import Constants from "./constants/Constants.js";
 import styles from './css/widget.css';
- 
+
 @CSSModules(styles, { allowMultiple: true })
 export default class DateTimePicker extends Component {
   static propTypes = {
@@ -114,6 +114,16 @@ export default class DateTimePicker extends Component {
     )
   }
 
+  renderTimeSidePanel = () => {
+    if (this.props.mode !== Constants.MODE_DATETIME_SIDE) {
+      return null;
+    }
+
+    return (
+      <li styleName="right-side"><TimeSidePanel /></li>
+    );
+  }
+
   render() {
     let styleNames = [ "widget" ];
     if (this.props.mode === Constants.MODE_DATETIME_SIDE) {
@@ -128,6 +138,7 @@ export default class DateTimePicker extends Component {
         <ul className="list-unstyled">
           {this.renderSwitchButton()}
           {this.renderDatePicker()}
+          {this.renderTimeSidePanel()}
           {this.renderTimePicker()}
         </ul>
       </div>
