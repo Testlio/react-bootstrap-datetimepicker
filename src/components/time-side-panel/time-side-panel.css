@@ -3,5 +3,6 @@
 }
 
 .selected {
-  background: #000;
+  background: #eeeeee;
+  border-radius: 4px;
 }

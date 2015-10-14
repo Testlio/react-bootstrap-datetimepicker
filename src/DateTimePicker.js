@@ -48,7 +48,8 @@ export default class DateTimePicker extends Component {
     widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
     setSelectedHour: PropTypes.func,
-    setSelectedMinute: PropTypes.func
+    setSelectedMinute: PropTypes.func,
+    setSelectedTime: PropTypes.func
   }
 
   renderDatePicker = () => {
@@ -120,7 +121,11 @@ export default class DateTimePicker extends Component {
     }
 
     return (
-      <li styleName="right-side"><TimeSidePanel /></li>
+      <li 
+        setSelectedTime={this.props.setSelectedTime}
+        styleName="right-side">
+        <TimeSidePanel />
+      </li>
     );
   }
 

@@ -21,6 +21,7 @@ export default class DatePicker extends Component {
     ]),
     daysOfWeekDisabled: PropTypes.array,
     setSelectedDate: PropTypes.func.isRequired,
+    setSelectedDate: PropTypes.func,
     subtractYear: PropTypes.func.isRequired,
     addYear: PropTypes.func.isRequired,
     setViewMonth: PropTypes.func.isRequired,
@@ -93,7 +94,6 @@ export default class DatePicker extends Component {
             maxDate={this.props.maxDate}
             minDate={this.props.minDate}
             selectedDate={this.props.selectedDate}
-            setSelectedDate={this.props.setSelectedDate}
             showMonths={this.showMonths}
             showToday={this.props.showToday}
             subtractMonth={this.props.subtractMonth}

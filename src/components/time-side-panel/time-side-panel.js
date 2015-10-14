@@ -8,7 +8,8 @@ import convertToAmPm from '../../lib/convert-military-time-to-ampm.js'
 @CSSModules(styles)
 export default class TimeSidePanel extends Component {
   static propTypes = {
-    timesShown: PropTypes.array
+    timesShown: PropTypes.array.isRequired,
+    setSelectedTime: PropTypes.func.isRequired
   }
 
   state = {

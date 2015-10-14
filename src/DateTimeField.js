@@ -62,7 +62,7 @@ export default class DateTimeField extends Component {
       },
       viewDate: moment(this.props.dateTime, this.props.format, true).startOf("month"),
       selectedDate: moment(this.props.dateTime, this.props.format, true),
-      inputValue: typeof this.props.defaultText !== "undefined" ? this.props.defaultText : moment(this.props.dateTime, this.props.format, true).format(this.resolvePropsInputFormat())
+      inputValue: this.props.defaultText || moment(this.props.dateTime, this.props.format, true).format(this.resolvePropsInputFormat())
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -104,21 +104,19 @@ export default class DateTimeField extends Component {
 
   setSelectedDate = (e) => {
     const { target } = e;
-    if (target.className && !target.className.match(/disabled/g)) {
-      let month;
-      if (target.className.indexOf("new") >= 0) month = this.state.viewDate.month() + 1;
-      else if (target.className.indexOf("old") >= 0) month = this.state.viewDate.month() - 1;
-      else month = this.state.viewDate.month();
+    let month;
+    if (target.className && target.className.match(/disabled/g)) { return; }
+    if (target.className.indexOf("new") >= 0) month = this.state.viewDate.month() + 1;
+    else if (target.className.indexOf("old") >= 0) month = this.state.viewDate.month() - 1;
+    else month = this.state.viewDate.month();
+    return this.setState({
+      selectedDate: this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes())
+    }, () => {
+      this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
-        selectedDate: this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes())
-      }, function() {
-        this.closePicker();
-        this.props.onChange(this.state.selectedDate.format(this.props.format));
-        return this.setState({
-          inputValue: this.state.selectedDate.format(this.state.inputFormat)
-        });
+        inputValue: this.state.selectedDate.format(this.state.inputFormat)
       });
-    }
+    });
   }
 
   setSelectedHour = (e) => {
