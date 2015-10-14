@@ -5,7 +5,7 @@ import CSSModules from 'react-css-modules';
 
 import DatePicker from "./components/datepicker/datepicker.js";
 import Constants from "./constants/Constants.js";
-import styles from './css/date-time-picker.css';
+import styles from './css/widget.css';
  
 @CSSModules(styles, { allowMultiple: true })
 export default class DatePicker extends Component {

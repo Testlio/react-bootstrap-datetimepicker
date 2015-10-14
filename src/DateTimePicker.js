@@ -7,7 +7,7 @@ import DatePicker from "./datepicker.js";
 import TimePicker from "./timepicker.js";
 import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
 import Constants from "./constants/Constants.js";
-import styles from './css/date-time-picker.css';
+import styles from './css/widget.css';
  
 @CSSModules(styles, { allowMultiple: true })
 export default class DateTimePicker extends Component {

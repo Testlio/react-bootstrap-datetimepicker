@@ -38,17 +38,13 @@ export default class DateTimePickerYears extends Component {
           <thead>
             <tr>
               <th className="prev" onClick={this.props.subtractDecade}>‹</th>
-
               <th className="switch" colSpan="5">{year} - {year + 9}</th>
-
               <th className="next" onClick={this.props.addDecade}>›</th>
             </tr>
           </thead>
 
           <tbody>
-            <tr>
-              <td colSpan="7">{this.renderYears()}</td>
-            </tr>
+            <tr><td colSpan="7">{this.renderYears()}</td></tr>
           </tbody>
         </table>
       </div>
