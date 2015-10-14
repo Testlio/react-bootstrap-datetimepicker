@@ -72,33 +72,23 @@ export default class Timepicker extends Component {
           <tbody>
             <tr>
               <td><a className="btn" onClick={this.props.addHour}><Glyphicon glyph="chevron-up" /></a></td>
-
               <td className="separator"></td>
-
               <td><a className="btn" onClick={this.props.addMinute}><Glyphicon glyph="chevron-up" /></a></td>
-
               <td className="separator"></td>
             </tr>
 
             <tr>
               <td><span className="timepicker-hour" onClick={this.showHours}>{this.props.selectedDate.format("h")}</span></td>
-
               <td className="separator">:</td>
-
               <td><span className="timepicker-minute" onClick={this.showMinutes}>{this.props.selectedDate.format("mm")}</span></td>
-
               <td className="separator"></td>
-
               <td><button className="btn btn-primary" onClick={this.props.togglePeriod} type="button">{this.props.selectedDate.format("A")}</button></td>
             </tr>
 
             <tr>
               <td><a className="btn" onClick={this.props.subtractHour}><Glyphicon glyph="chevron-down" /></a></td>
-
               <td className="separator"></td>
-
               <td><a className="btn" onClick={this.props.subtractMinute}><Glyphicon glyph="chevron-down" /></a></td>
-
               <td className="separator"></td>
             </tr>
           </tbody>
@@ -114,9 +104,7 @@ export default class Timepicker extends Component {
     return (
         <div className="timepicker">
           {this.renderPicker()}
-
           {this.renderHours()}
-
           {this.renderMinutes()}
         </div>
     );
