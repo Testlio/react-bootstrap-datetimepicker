@@ -5,27 +5,27 @@ const { TestUtils } = React.addons;
 
 describe("DateTimePickerHours", function() {
   const DateTimePickerHours = require("../DateTimePickerHours.js");
-  let hours, onSwitchMock, setSelectedHourMock;
+  let hours, onSwitchMock, setSelectedHourByEventMock;
 
 
   describe("Controls", function() {
 
     beforeEach(() => {
-      setSelectedHourMock = jest.genMockFunction();
+      setSelectedHourByEventMock = jest.genMockFunction();
       onSwitchMock = jest.genMockFunction();
       hours = TestUtils.renderIntoDocument(
         <DateTimePickerHours
           mode={Constants.MODE_TIME}
           onSwitch={onSwitchMock}
-          setSelectedHour={setSelectedHourMock}
+          setSelectedHourByEvent={setSelectedHourByEventMock}
          />
       );
     });
 
-    it("calls setSelectedHour when clicking a hour", function() {
+    it("calls setSelectedHourByEvent when clicking a hour", function() {
       const hour = TestUtils.scryRenderedDOMComponentsWithClass(hours, "hour")[0];
       TestUtils.Simulate.click(hour);
-      expect(setSelectedHourMock.mock.calls.length).toBe(1);
+      expect(setSelectedHourByEventMock.mock.calls.length).toBe(1);
      });
 
     it("calls onSwitch when clicking the switch", function() {
@@ -37,7 +37,7 @@ describe("DateTimePickerHours", function() {
 
   describe("UI", function() {
     beforeEach(() => {
-      setSelectedHourMock = jest.genMockFunction();
+      setSelectedHourByEventMock = jest.genMockFunction();
       onSwitchMock = jest.genMockFunction();
     });
 
@@ -46,7 +46,7 @@ describe("DateTimePickerHours", function() {
         <DateTimePickerHours
           mode={Constants.MODE_TIME}
           onSwitch={onSwitchMock}
-          setSelectedHour={setSelectedHourMock}
+          setSelectedHourByEvent={setSelectedHourByEventMock}
          />
       );
       const switchList = TestUtils.scryRenderedDOMComponentsWithClass(hours, "list-unstyled");
@@ -58,7 +58,7 @@ describe("DateTimePickerHours", function() {
         <DateTimePickerHours
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedHour={setSelectedHourMock}
+          setSelectedHourByEvent={setSelectedHourByEventMock}
          />
       );
       const switchList = TestUtils.scryRenderedDOMComponentsWithClass(hours, "list-unstyled");
@@ -70,7 +70,7 @@ describe("DateTimePickerHours", function() {
         <DateTimePickerHours
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedHour={setSelectedHourMock}
+          setSelectedHourByEvent={setSelectedHourByEventMock}
          />
       );
       const hourList = TestUtils.scryRenderedDOMComponentsWithClass(hours, "hour");
@@ -82,7 +82,7 @@ describe("DateTimePickerHours", function() {
         <DateTimePickerHours
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedHour={setSelectedHourMock}
+          setSelectedHourByEvent={setSelectedHourByEventMock}
          />
       );
       const hourList = TestUtils.scryRenderedDOMComponentsWithClass(hours, "hour");

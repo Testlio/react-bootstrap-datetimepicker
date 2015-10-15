@@ -5,7 +5,7 @@ import ModeSwitcher from './mode-switcher/mode-switcher.js'
 
 export default class DateTimePickerMinutes extends Component {
   static propTypes = {
-    setSelectedMinute: PropTypes.func.isRequired,
+    setSelectedMinuteByEvent: PropTypes.func.isRequired,
     onSwitch: PropTypes.func.isRequired,
     mode: PropTypes.string.isRequired
   }
@@ -22,33 +22,33 @@ export default class DateTimePickerMinutes extends Component {
         <table className="table-condensed">
           <tbody>
             <tr>
-              <td className="minute" onClick={this.props.setSelectedMinute}>00</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>00</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>05</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>05</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>10</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>10</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>15</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>15</td>
             </tr>
 
             <tr>
-              <td className="minute" onClick={this.props.setSelectedMinute}>20</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>20</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>25</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>25</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>30</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>30</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>35</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>35</td>
             </tr>
 
             <tr>
-              <td className="minute" onClick={this.props.setSelectedMinute}>40</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>40</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>45</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>45</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>50</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>50</td>
 
-              <td className="minute" onClick={this.props.setSelectedMinute}>55</td>
+              <td className="minute" onClick={this.props.setSelectedMinuteByEvent}>55</td>
             </tr>
           </tbody>
         </table>

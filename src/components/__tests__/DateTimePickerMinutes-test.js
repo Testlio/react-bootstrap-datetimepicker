@@ -5,27 +5,27 @@ const { TestUtils } = React.addons;
 
 describe("DateTimePickerMinutes", function() {
   const DateTimePickerMinutes = require("../DateTimePickerMinutes.js");
-  let minutes, onSwitchMock, setSelectedMinuteMock;
+  let minutes, onSwitchMock, setSelectedMinuteByEventMock;
 
 
   describe("Controls", function() {
 
     beforeEach(() => {
-      setSelectedMinuteMock = jest.genMockFunction();
+      setSelectedMinuteByEventMock = jest.genMockFunction();
       onSwitchMock = jest.genMockFunction();
       minutes = TestUtils.renderIntoDocument(
         <DateTimePickerMinutes
           mode={Constants.MODE_TIME}
           onSwitch={onSwitchMock}
-          setSelectedMinute={setSelectedMinuteMock}
+          setSelectedMinuteByEvent={setSelectedMinuteByEventMock}
          />
       );
     });
 
-    it("calls setSelectedMinute when clicking a minute", function() {
+    it("calls setSelectedMinuteByEvent when clicking a minute", function() {
       const minute = TestUtils.scryRenderedDOMComponentsWithClass(minutes, "minute")[0];
       TestUtils.Simulate.click(minute);
-      expect(setSelectedMinuteMock.mock.calls.length).toBe(1);
+      expect(setSelectedMinuteByEventMock.mock.calls.length).toBe(1);
      });
 
     it("calls onSwitch when clicking the switch", function() {
@@ -37,7 +37,7 @@ describe("DateTimePickerMinutes", function() {
 
   describe("UI", function() {
     beforeEach(() => {
-      setSelectedMinuteMock = jest.genMockFunction();
+      setSelectedMinuteByEventMock = jest.genMockFunction();
       onSwitchMock = jest.genMockFunction();
     });
 
@@ -46,7 +46,7 @@ describe("DateTimePickerMinutes", function() {
         <DateTimePickerMinutes
           mode={Constants.MODE_TIME}
           onSwitch={onSwitchMock}
-          setSelectedMinute={setSelectedMinuteMock}
+          setSelectedMinuteByEvent={setSelectedMinuteByEventMock}
          />
       );
       const switchList = TestUtils.scryRenderedDOMComponentsWithClass(minutes, "list-unstyled");
@@ -58,7 +58,7 @@ describe("DateTimePickerMinutes", function() {
         <DateTimePickerMinutes
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedMinute={setSelectedMinuteMock}
+          setSelectedMinuteByEvent={setSelectedMinuteByEventMock}
          />
       );
       const switchList = TestUtils.scryRenderedDOMComponentsWithClass(minutes, "list-unstyled");
@@ -70,7 +70,7 @@ describe("DateTimePickerMinutes", function() {
         <DateTimePickerMinutes
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedMinute={setSelectedMinuteMock}
+          setSelectedMinuteByEvent={setSelectedMinuteByEventMock}
          />
       );
       const minuteList = TestUtils.scryRenderedDOMComponentsWithClass(minutes, "minute");
@@ -82,7 +82,7 @@ describe("DateTimePickerMinutes", function() {
         <DateTimePickerMinutes
           mode={Constants.MODE_DATE}
           onSwitch={onSwitchMock}
-          setSelectedMinute={setSelectedMinuteMock}
+          setSelectedMinuteByEvent={setSelectedMinuteByEventMock}
          />
       );
       const minuteList = TestUtils.scryRenderedDOMComponentsWithClass(minutes, "minute");

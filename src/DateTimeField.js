@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 import { Glyphicon } from "react-bootstrap";
+
 import DateTimePicker from "./datetimepicker.js";
 import DateTimePickerSide from './datetimepicker-side.js';
 import DatePicker from './datepicker.js';
@@ -106,27 +107,26 @@ export default class DateTimeField extends Component {
     return moment(this.state.inputValue, this.props.inputFormat, true).format(this.props.format);
   }
 
-  setSelectedDate = (e) => {
+  setSelectedDateByEvent = (e) => {
     const { target } = e;
     let month;
-    if (target.className && target.className.match(/disabled/g)) { return; }
+    let date = +e.target.innerHTML;
+    let selectedDate = this.state.selectedDate;
     if (target.className.indexOf("new") >= 0) month = this.state.viewDate.month() + 1;
     else if (target.className.indexOf("old") >= 0) month = this.state.viewDate.month() - 1;
     else month = this.state.viewDate.month();
-    console.log(this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes()));
-    return this.setState({
-      selectedDate: this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes())
-    }, () => {
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
-      return this.setState({
-        inputValue: this.state.selectedDate.format(this.state.inputFormat)
-      });
-    });
+    this.setSelectedDate(
+      this.state.viewDate.clone()
+        .month(month)
+        .date(date)
+        .hour(selectedDate.hours())
+        .minute(selectedDate.minutes())
+    )
   }
 
-  setSelectedHour = (e) => {
+  setSelectedDate = (selectedDate) => {
     return this.setState({
-      selectedDate: this.state.selectedDate.clone().hour(parseInt(e.target.innerHTML)).minute(this.state.selectedDate.minutes())
+      selectedDate: selectedDate
     }, function() {
       this.closePicker();
       this.props.onChange(this.state.selectedDate.format(this.props.format));
@@ -136,16 +136,14 @@ export default class DateTimeField extends Component {
     });
   }
 
-  setSelectedMinute = (e) => {
-    return this.setState({
-      selectedDate: this.state.selectedDate.clone().hour(this.state.selectedDate.hours()).minute(parseInt(e.target.innerHTML))
-    }, function() {
-      this.closePicker();
-      this.props.onChange(this.state.selectedDate.format(this.props.format));
-      return this.setState({
-        inputValue: this.state.selectedDate.format(this.state.inputFormat)
-      });
-    });
+  setSelectedHour = (hour) => {
+    if (typeof hour === 'undefind') { return; }
+    return this.setSelectedDate(this.state.selectedDate.clone().hour(hour));
+  }
+
+  setSelectedMinute = (minute) => {
+    if (typeof minute === 'undefind') { return; }
+    return this.setSelectedDate(this.state.selectedDate.clone().minute(minute))
   }
 
   setViewMonth = (month) => {
@@ -343,10 +341,6 @@ export default class DateTimeField extends Component {
     }
   }
 
-  setSelectedTime = () => {
-
-  }
-
   renderDateTimePicker() {
     if (!this.state.showPicker) {
       return null;
@@ -362,10 +356,10 @@ export default class DateTimeField extends Component {
         minDate: this.props.minDate,
         mode: this.props.mode,
         selectedDate: this.state.selectedDate,
+        setSelectedDateByEvent: this.setSelectedDateByEvent,
+        setSelectedHourByEvent: this.setSelectedHourByEvent,
         setSelectedDate: this.setSelectedDate,
-        setSelectedHour: this.setSelectedHour,
-        setSelectedMinute: this.setSelectedMinute,
-        setSelectedTime: this.setSelectedTime,
+        setSelectedMinuteByEvent: this.setSelectedMinuteByEvent,
         setViewMonth: this.setViewMonth,
         setViewYear: this.setViewYear,
         showDatePicker: this.state.showDatePicker,

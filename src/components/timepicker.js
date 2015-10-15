@@ -6,8 +6,8 @@ import Constants from "../constants/constants.js";
 
 export default class Timepicker extends Component {
   static propTypes = {
-    setSelectedHour: PropTypes.func.isRequired,
-    setSelectedMinute: PropTypes.func.isRequired,
+    setSelectedHourByEvent: PropTypes.func.isRequired,
+    setSelectedMinuteByEvent: PropTypes.func.isRequired,
     subtractHour: PropTypes.func.isRequired,
     addHour: PropTypes.func.isRequired,
     subtractMinute: PropTypes.func.isRequired,

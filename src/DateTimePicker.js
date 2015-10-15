@@ -23,7 +23,7 @@ export default class DateTimePicker extends Component {
       PropTypes.number
     ]),
     daysOfWeekDisabled: PropTypes.array,
-    setSelectedDate: PropTypes.func.isRequired,
+    setSelectedDateByEvent: PropTypes.func.isRequired,
     subtractYear: PropTypes.func.isRequired,
     addYear: PropTypes.func.isRequired,
     setViewMonth: PropTypes.func.isRequired,
@@ -40,8 +40,8 @@ export default class DateTimePicker extends Component {
     widgetClasses: PropTypes.object,
     widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
-    setSelectedHour: PropTypes.func,
-    setSelectedMinute: PropTypes.func
+    setSelectedHourByEvent: PropTypes.func,
+    setSelectedMinuteByEvent: PropTypes.func
   }
 
   renderDatePicker = () => {
@@ -59,7 +59,7 @@ export default class DateTimePicker extends Component {
           maxDate={this.props.maxDate}
           minDate={this.props.minDate}
           selectedDate={this.props.selectedDate}
-          setSelectedDate={this.props.setSelectedDate}
+          setSelectedDateByEvent={this.props.setSelectedDateByEvent}
           setViewMonth={this.props.setViewMonth}
           setViewYear={this.props.setViewYear}
           showToday={this.props.showToday}
@@ -84,8 +84,8 @@ export default class DateTimePicker extends Component {
           addHour={this.props.addHour}
           addMinute={this.props.addMinute}
           selectedDate={this.props.selectedDate}
-          setSelectedHour={this.props.setSelectedHour}
-          setSelectedMinute={this.props.setSelectedMinute}
+          setSelectedHourByEvent={this.props.setSelectedHourByEvent}
+          setSelectedMinuteByEvent={this.props.setSelectedMinuteByEvent}
           subtractHour={this.props.subtractHour}
           subtractMinute={this.props.subtractMinute}
           togglePeriod={this.props.togglePeriod}

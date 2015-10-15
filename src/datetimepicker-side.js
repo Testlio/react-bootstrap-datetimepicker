@@ -3,7 +3,6 @@ import classnames from "classnames";
 import CSSModules from 'react-css-modules';
 
 import DatePicker from "./components/datepicker.js";
-import TimePicker from "./components/timepicker.js";
 import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
 import styles from './css/widget.css';
 
@@ -22,11 +21,12 @@ export default class DateTimePickerSide extends Component {
       PropTypes.number
     ]),
     daysOfWeekDisabled: PropTypes.array,
-    setSelectedDate: PropTypes.func.isRequired,
+    setSelectedDateByEvent: PropTypes.func.isRequired,
     subtractYear: PropTypes.func.isRequired,
     addYear: PropTypes.func.isRequired,
     setViewMonth: PropTypes.func.isRequired,
     setViewYear: PropTypes.func.isRequired,
+    setSelectedDate: PropTypes.func.isRequired,
     subtractHour: PropTypes.func.isRequired,
     addHour: PropTypes.func.isRequired,
     subtractMinute: PropTypes.func.isRequired,
@@ -39,9 +39,6 @@ export default class DateTimePickerSide extends Component {
     widgetClasses: PropTypes.object,
     widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
-    setSelectedHour: PropTypes.func,
-    setSelectedMinute: PropTypes.func,
-    setSelectedTime: PropTypes.func.isRequired,
     timesShown: PropTypes.array.isRequired
   }
 
@@ -60,7 +57,7 @@ export default class DateTimePickerSide extends Component {
           maxDate={this.props.maxDate}
           minDate={this.props.minDate}
           selectedDate={this.props.selectedDate}
-          setSelectedDate={this.props.setSelectedDate}
+          setSelectedDateByEvent={this.props.setSelectedDateByEvent}
           setViewMonth={this.props.setViewMonth}
           setViewYear={this.props.setViewYear}
           showToday={this.props.showToday}
@@ -74,29 +71,6 @@ export default class DateTimePickerSide extends Component {
     );
   }
 
-  renderTimePicker = () => {
-    if (!this.props.showTimePicker) {
-      return null;
-    }
-
-    return (
-      <li>
-        <TimePicker
-          addHour={this.props.addHour}
-          addMinute={this.props.addMinute}
-          mode={this.props.mode}
-          selectedDate={this.props.selectedDate}
-          setSelectedHour={this.props.setSelectedHour}
-          setSelectedMinute={this.props.setSelectedMinute}
-          subtractHour={this.props.subtractHour}
-          subtractMinute={this.props.subtractMinute}
-          togglePeriod={this.props.togglePeriod}
-          viewDate={this.props.viewDate}
-        />
-      </li>
-    );
-  }
-
   render() {
     return (
       <div styleName="widget wide" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
@@ -104,11 +78,11 @@ export default class DateTimePickerSide extends Component {
           {this.renderDatePicker()}
           <li styleName="right-side">
             <TimeSidePanel 
+              selectedDate={this.props.selectedDate}
               timesShown={this.props.timesShown}
-              setSelectedTime={this.props.setSelectedTime}
+              setSelectedDate={this.props.setSelectedDate}
             />
           </li>
-          {this.renderTimePicker()}
         </ul>
       </div>
     );

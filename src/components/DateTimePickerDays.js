@@ -14,7 +14,7 @@ export default class DateTimePickerDays extends Component {
     selectedDate: PropTypes.object.isRequired,
     showToday: PropTypes.bool,
     daysOfWeekDisabled: PropTypes.array,
-    setSelectedDate: PropTypes.func.isRequired,
+    setSelectedDateByEvent: PropTypes.func.isRequired,
     showMonths: PropTypes.func.isRequired,
     minDate: PropTypes.object,
     maxDate: PropTypes.object
@@ -22,6 +22,11 @@ export default class DateTimePickerDays extends Component {
 
   static defaultProps = {
     showToday: true
+  }
+
+  handleDateClick = (isDisabled, ...args) => {
+    if (isDisabled) return;
+    this.props.setSelectedDateByEvent(...args);
   }
 
   renderDays = () => {
@@ -71,7 +76,7 @@ export default class DateTimePickerDays extends Component {
         <td key={prevMonth.month() + "-" + prevMonth.date()} 
             className={classnames(classes)} 
             styleName={classnames(classes)}
-            onClick={this.props.setSelectedDate}>{prevMonth.date()}</td>
+            onClick={this.handleDateClick.bind(this, !!classes.disabled)}>{prevMonth.date()}</td>
       );
       if (prevMonth.weekday() === moment().endOf("week").weekday()) {
         row = <tr key={prevMonth.month() + "-" + prevMonth.date()}>{cells}</tr>;

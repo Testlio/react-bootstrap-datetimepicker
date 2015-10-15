@@ -9,7 +9,8 @@ import convertToAmPm from '../../lib/convert-military-time-to-ampm.js'
 export default class TimeSidePanel extends Component {
   static propTypes = {
     timesShown: PropTypes.array.isRequired,
-    setSelectedTime: PropTypes.func.isRequired
+    setSelectedDate: PropTypes.func.isRequired,
+    selectedDate: PropTypes.object.isRequired
   }
 
   state = {
@@ -17,7 +18,12 @@ export default class TimeSidePanel extends Component {
   }
 
   onSelectTime(time) {
-    this.setState({selectedTime : time});
+    this.setState({ selectedTime : time }, () => {
+      let splitted = (time + '').split(':');
+      console.log(this.props.selectedDate);
+      let newDate = this.props.selectedDate.clone();
+      this.props.setSelectedDate(newDate.hour(splitted[0]).minute(splitted[1] || 0));
+    });
   }
     
   renderTimes = () => {

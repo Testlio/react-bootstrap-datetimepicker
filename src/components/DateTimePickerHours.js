@@ -1,11 +1,10 @@
 import { Component, PropTypes } from "react";
-import { Glyphicon } from "react-bootstrap";
 import Constants from "../constants/constants.js";
 import ModeSwitcher from '../components/mode-switcher/mode-switcher.js'
 
 export default class DateTimePickerHours extends Component {
   static propTypes = {
-    setSelectedHour: PropTypes.func.isRequired,
+    setSelectedHourByEvent: PropTypes.func.isRequired,
     onSwitch: PropTypes.func.isRequired,
     mode: PropTypes.string.isRequired
   }
@@ -22,63 +21,63 @@ export default class DateTimePickerHours extends Component {
         <table className="table-condensed">
           <tbody>
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>01</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>01</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>02</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>02</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>03</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>03</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>04</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>04</td>
             </tr>
 
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>05</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>05</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>06</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>06</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>07</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>07</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>08</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>08</td>
             </tr>
 
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>09</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>09</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>10</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>10</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>11</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>11</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>12</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>12</td>
             </tr>
 
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>13</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>13</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>14</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>14</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>15</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>15</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>16</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>16</td>
             </tr>
 
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>17</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>17</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>18</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>18</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>19</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>19</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>20</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>20</td>
             </tr>
 
             <tr>
-              <td className="hour" onClick={this.props.setSelectedHour}>21</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>21</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>22</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>22</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>23</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>23</td>
 
-              <td className="hour" onClick={this.props.setSelectedHour}>24</td>
+              <td className="hour" onClick={this.props.setSelectedHourByEvent}>24</td>
             </tr>
           </tbody>
         </table>
