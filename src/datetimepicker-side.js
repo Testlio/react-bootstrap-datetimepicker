@@ -51,7 +51,7 @@ export default class DateTimePickerSide extends Component {
     }
 
     return (
-      <li>
+      <li className="pull-left">
         <DatePicker
           addDecade={this.props.addDecade}
           addMonth={this.props.addMonth}

@@ -21,7 +21,6 @@ export default class DatePicker extends Component {
     ]),
     daysOfWeekDisabled: PropTypes.array,
     setSelectedDate: PropTypes.func.isRequired,
-    setSelectedDate: PropTypes.func,
     subtractYear: PropTypes.func.isRequired,
     addYear: PropTypes.func.isRequired,
     setViewMonth: PropTypes.func.isRequired,
@@ -89,15 +88,16 @@ export default class DatePicker extends Component {
     if (this.state.daysDisplayed) {
       return (
       <DateTimePickerDays
-            addMonth={this.props.addMonth}
-            daysOfWeekDisabled={this.props.daysOfWeekDisabled}
-            maxDate={this.props.maxDate}
-            minDate={this.props.minDate}
-            selectedDate={this.props.selectedDate}
-            showMonths={this.showMonths}
-            showToday={this.props.showToday}
-            subtractMonth={this.props.subtractMonth}
-            viewDate={this.props.viewDate}
+        addMonth={this.props.addMonth}
+        daysOfWeekDisabled={this.props.daysOfWeekDisabled}
+        maxDate={this.props.maxDate}
+        minDate={this.props.minDate}
+        selectedDate={this.props.selectedDate}
+        setSelectedDate={this.props.setSelectedDate}
+        showMonths={this.showMonths}
+        showToday={this.props.showToday}
+        subtractMonth={this.props.subtractMonth}
+        viewDate={this.props.viewDate}
       />
       );
     } else {
@@ -109,12 +109,13 @@ export default class DatePicker extends Component {
     if (this.state.monthsDisplayed) {
       return (
       <DateTimePickerMonths
-            addYear={this.props.addYear}
-            selectedDate={this.props.selectedDate}
-            setViewMonth={this.setViewMonth}
-            showYears={this.showYears}
-            subtractYear={this.props.subtractYear}
-            viewDate={this.props.viewDate}
+        addYear={this.props.addYear}
+        selectedDate={this.props.selectedDate}
+        setViewMonth={this.setViewMonth}
+        setSelectedDate={this.props.setSelectedDate}
+        showYears={this.showYears}
+        subtractYear={this.props.subtractYear}
+        viewDate={this.props.viewDate}
       />
       );
     } else {
@@ -126,11 +127,12 @@ export default class DatePicker extends Component {
     if (this.state.yearsDisplayed) {
       return (
       <DateTimePickerYears
-            addDecade={this.props.addDecade}
-            selectedDate={this.props.selectedDate}
-            setViewYear={this.setViewYear}
-            subtractDecade={this.props.subtractDecade}
-            viewDate={this.props.viewDate}
+        addDecade={this.props.addDecade}
+        selectedDate={this.props.selectedDate}
+        setViewYear={this.setViewYear}
+        subtractDecade={this.props.subtractDecade}
+        setSelectedDate={this.props.setSelectedDate}
+        viewDate={this.props.viewDate}
       />
       );
     } else {
@@ -140,20 +142,10 @@ export default class DatePicker extends Component {
 
   render() {
     return (
-      <div 
-        styleName="datepicker"
-        className={classnames(this.props.widgetClasses)} 
-        style={this.props.widgetStyle}
-        >
-        <ul className="list-unstyled">
-          <li>
-            <div className="datepicker">
-              {this.renderDays()}
-              {this.renderMonths()}
-              {this.renderYears()}
-            </div>
-          </li>
-        </ul>
+      <div className="datepicker">
+        {this.renderDays()}
+        {this.renderMonths()}
+        {this.renderYears()}
       </div>
     );
   }
