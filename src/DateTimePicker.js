@@ -98,7 +98,7 @@ export default class DateTimePicker extends Component {
   render() {
     return (
       <div 
-        styleName="widget"
+        styleName="widget datepicker"
         className={classnames(this.props.widgetClasses)} 
         style={this.props.widgetStyle}
         >
