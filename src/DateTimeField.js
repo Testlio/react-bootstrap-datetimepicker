@@ -136,16 +136,6 @@ export default class DateTimeField extends Component {
     });
   }
 
-  setSelectedHour = (hour) => {
-    if (typeof hour === 'undefind') { return; }
-    return this.setSelectedDate(this.state.selectedDate.clone().hour(hour));
-  }
-
-  setSelectedMinute = (minute) => {
-    if (typeof minute === 'undefind') { return; }
-    return this.setSelectedDate(this.state.selectedDate.clone().minute(minute))
-  }
-
   setViewMonth = (month) => {
     return this.setState({
       viewDate: this.state.viewDate.clone().month(month)
