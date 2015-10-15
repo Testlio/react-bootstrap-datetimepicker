@@ -5,7 +5,7 @@ import CSSModules from 'react-css-modules';
 import DatePicker from "./components/datepicker.js";
 import TimePicker from "./components/timepicker.js";
 import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
-import Constants from "./constants/Constants.js";
+import Constants from "./constants/constants.js";
 import styles from './css/widget.css';
 
 @CSSModules(styles, { allowMultiple: true })

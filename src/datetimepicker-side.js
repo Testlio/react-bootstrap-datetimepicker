@@ -5,7 +5,6 @@ import CSSModules from 'react-css-modules';
 import DatePicker from "./components/datepicker.js";
 import TimePicker from "./components/timepicker.js";
 import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
-import Constants from "./constants/Constants.js";
 import styles from './css/widget.css';
 
 @CSSModules(styles, { allowMultiple: true })

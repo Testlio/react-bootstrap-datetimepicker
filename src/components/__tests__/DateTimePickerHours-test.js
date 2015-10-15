@@ -1,5 +1,5 @@
 import React from "react/addons";
-import Constants from "../../constants/Constants.js";
+import Constants from "../../constants/constants.js";
 jest.dontMock("../DateTimePickerHours.js");
 const { TestUtils } = React.addons;
 

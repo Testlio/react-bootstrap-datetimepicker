@@ -3,7 +3,7 @@ import { Glyphicon } from "react-bootstrap";
 import DateTimePickerMinutes from "./DateTimePickerMinutes";
 import DateTimePickerHours from "./DateTimePickerHours";
 import DateTimePickerHoursSide from './DateTimePickerHoursSide';
-import Constants from "../constants/Constants.js";
+import Constants from "../constants/constants.js";
 
 export default class Timepicker extends Component {
   static propTypes = {

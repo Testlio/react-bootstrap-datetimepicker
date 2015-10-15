@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import { Glyphicon } from "react-bootstrap";
-import Constants from "../constants/Constants.js";
+import Constants from "../constants/constants.js";
 import ModeSwitcher from './mode-switcher/mode-switcher.js'
 
 export default class DateTimePickerMinutes extends Component {

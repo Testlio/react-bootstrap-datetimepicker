@@ -5,7 +5,7 @@ import DateTimePicker from "./datetimepicker.js";
 import DateTimePickerSide from './datetimepicker-side.js';
 import DatePicker from './datepicker.js';
 import TimePicker from './timepicker.js';
-import Constants from "./constants/Constants.js";
+import Constants from "./constants/constants.js";
 
 export default class DateTimeField extends Component {
   static defaultProps = {
