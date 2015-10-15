@@ -41,7 +41,8 @@ export default class DateTimePickerSide extends Component {
     togglePicker: PropTypes.func,
     setSelectedHour: PropTypes.func,
     setSelectedMinute: PropTypes.func,
-    setSelectedTime: PropTypes.func
+    setSelectedTime: PropTypes.func.isRequired,
+    timesShown: PropTypes.array.isRequired
   }
 
   renderDatePicker = () => {
@@ -101,8 +102,11 @@ export default class DateTimePickerSide extends Component {
       <div styleName="widget wide" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
         <ul className="list-unstyled">
           {this.renderDatePicker()}
-          <li setSelectedTime={this.props.setSelectedTime} styleName="right-side">
-            <TimeSidePanel />
+          <li styleName="right-side">
+            <TimeSidePanel 
+              timesShown={this.props.timesShown}
+              setSelectedTime={this.props.setSelectedTime}
+            />
           </li>
           {this.renderTimePicker()}
         </ul>

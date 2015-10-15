@@ -37,6 +37,7 @@ export default class DateTimeField extends Component {
     inputProps: PropTypes.object,
     inputFormat: PropTypes.string,
     defaultText: PropTypes.string,
+    timesShown: PropTypes.array,
     mode: PropTypes.oneOf([
       Constants.MODE_DATE,
       Constants.MODE_DATETIME,
@@ -342,6 +343,10 @@ export default class DateTimeField extends Component {
     }
   }
 
+  setSelectedTime = () => {
+
+  }
+
   renderDateTimePicker() {
     if (!this.state.showPicker) {
       return null;
@@ -360,6 +365,7 @@ export default class DateTimeField extends Component {
         setSelectedDate: this.setSelectedDate,
         setSelectedHour: this.setSelectedHour,
         setSelectedMinute: this.setSelectedMinute,
+        setSelectedTime: this.setSelectedTime,
         setViewMonth: this.setViewMonth,
         setViewYear: this.setViewYear,
         showDatePicker: this.state.showDatePicker,
@@ -373,6 +379,7 @@ export default class DateTimeField extends Component {
         subtractYear: this.subtractYear,
         togglePeriod: this.togglePeriod,
         togglePicker: this.togglePicker,
+        timesShown: this.props.timeShown,
         viewDate: this.state.viewDate,
         viewMode: this.props.viewMode,
         widgetClasses: this.state.widgetClasses,

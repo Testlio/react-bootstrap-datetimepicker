@@ -22,19 +22,17 @@ export default class TimeSidePanel extends Component {
     
   renderTimes = () => {
     let i = 0
-    let result = [];
-    while (i++ < 24) {
-      result.push(
+    return this.props.timesShown.map((time, index) => {
+      return (
         <li 
-          key={i}
-          styleName={this.state.selectedTime === i ? 'selected' : ''} >
+          key={index}
+          styleName={this.state.selectedTime === time ? 'selected' : ''} >
           <btn 
             className="btn btn-link"
-            onClick={this.onSelectTime.bind(this, i)}>{convertToAmPm(i)}</btn>
+            onClick={this.onSelectTime.bind(this, time)}>{convertToAmPm(time)}</btn>
         </li>
       );
-    }
-    return result;
+    });
   }
 
   render() {

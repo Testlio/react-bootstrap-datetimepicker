@@ -5,6 +5,7 @@ import CSSModules from 'react-css-modules';
 import DateTimePickerDays from "./components/DateTimePickerDays";
 import DateTimePickerMonths from "./components/DateTimePickerMonths";
 import DateTimePickerYears from "./components/DateTimePickerYears";
+
 import styles from './css/widget.css';
 
 @CSSModules(styles, { allowMultiple: true })
@@ -21,7 +22,6 @@ export default class DatePicker extends Component {
     ]),
     daysOfWeekDisabled: PropTypes.array,
     setSelectedDate: PropTypes.func.isRequired,
-    setSelectedDate: PropTypes.func,
     subtractYear: PropTypes.func.isRequired,
     addYear: PropTypes.func.isRequired,
     setViewMonth: PropTypes.func.isRequired,
@@ -96,6 +96,7 @@ export default class DatePicker extends Component {
         maxDate={this.props.maxDate}
         minDate={this.props.minDate}
         selectedDate={this.props.selectedDate}
+        setSelectedDate={this.props.setSelectedDate}
         showMonths={this.showMonths}
         showToday={this.props.showToday}
         subtractMonth={this.props.subtractMonth}
@@ -112,6 +113,7 @@ export default class DatePicker extends Component {
       <DateTimePickerMonths
         addYear={this.props.addYear}
         selectedDate={this.props.selectedDate}
+        setSelectedDate={this.props.setSelectedDate}
         setViewMonth={this.setViewMonth}
         showYears={this.showYears}
         subtractYear={this.props.subtractYear}
@@ -130,6 +132,7 @@ export default class DatePicker extends Component {
         addDecade={this.props.addDecade}
         selectedDate={this.props.selectedDate}
         setViewYear={this.setViewYear}
+        setSelectedDate={this.props.setSelectedDate}
         subtractDecade={this.props.subtractDecade}
         viewDate={this.props.viewDate}
       />
