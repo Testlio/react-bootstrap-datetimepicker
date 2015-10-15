@@ -1,7 +1,10 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 import { Glyphicon } from "react-bootstrap";
-import DateTimePicker from "./DateTimePicker.js";
+import DateTimePicker from "./datetimepicker.js";
+import DateTimePickerSide from './datetimepicker-side.js';
+import DatePicker from './datepicker.js';
+import TimePicker from './timepicker.js';
 import Constants from "./constants/Constants.js";
 
 export default class DateTimeField extends Component {
@@ -109,6 +112,7 @@ export default class DateTimeField extends Component {
     if (target.className.indexOf("new") >= 0) month = this.state.viewDate.month() + 1;
     else if (target.className.indexOf("old") >= 0) month = this.state.viewDate.month() - 1;
     else month = this.state.viewDate.month();
+    console.log(this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes()));
     return this.setState({
       selectedDate: this.state.viewDate.clone().month(month).date(parseInt(e.target.innerHTML)).hour(this.state.selectedDate.hours()).minute(this.state.selectedDate.minutes())
     }, () => {
@@ -325,44 +329,55 @@ export default class DateTimeField extends Component {
     }
   }
 
+  getPickerComponent() {
+    switch (this.props.mode) {
+      case Constants.MODE_DATETIME_SIDE:
+        return DateTimePickerSide;
+      case Constants.MODE_DATE:
+        return DateTimePicker;
+      case Constants.MODE_TIME:
+        return TimePicker;
+      default:
+        return DatePicker;
+    }
+  }
+
   renderDateTimePicker() {
     if (!this.state.showPicker) {
       return null;
     }
-    return (
-      <DateTimePicker ref="widget"
-        addDecade={this.addDecade}
-        addHour={this.addHour}
-        addMinute={this.addMinute}
-        addMonth={this.addMonth}
-        addYear={this.addYear}
-        daysOfWeekDisabled={this.props.daysOfWeekDisabled}
-        maxDate={this.props.maxDate}
-        minDate={this.props.minDate}
-        mode={this.props.mode}
-        selectedDate={this.state.selectedDate}
-        setSelectedDate={this.setSelectedDate}
-        setSelectedHour={this.setSelectedHour}
-        setSelectedMinute={this.setSelectedMinute}
-        setViewMonth={this.setViewMonth}
-        setViewYear={this.setViewYear}
-        showDatePicker={this.state.showDatePicker}
-        showDateTimePicker={this.state.showDateTimePicker}
-        showTimePicker={this.state.showTimePicker}
-        showToday={this.props.showToday}
-        subtractDecade={this.subtractDecade}
-        subtractHour={this.subtractHour}
-        subtractMinute={this.subtractMinute}
-        subtractMonth={this.subtractMonth}
-        subtractYear={this.subtractYear}
-        togglePeriod={this.togglePeriod}
-        togglePicker={this.togglePicker}
-        viewDate={this.state.viewDate}
-        viewMode={this.props.viewMode}
-        widgetClasses={this.state.widgetClasses}
-        widgetStyle={this.state.widgetStyle}
-      />
-    );
+    return React.createElement(this.getPickerComponent(), {
+        addDecade: this.addDecade,
+        addHour: this.addHour,
+        addMinute: this.addMinute,
+        addMonth: this.addMonth,
+        addYear: this.addYear,
+        daysOfWeekDisabled: this.props.daysOfWeekDisabled,
+        maxDate: this.props.maxDate,
+        minDate: this.props.minDate,
+        mode: this.props.mode,
+        selectedDate: this.state.selectedDate,
+        setSelectedDate: this.setSelectedDate,
+        setSelectedHour: this.setSelectedHour,
+        setSelectedMinute: this.setSelectedMinute,
+        setViewMonth: this.setViewMonth,
+        setViewYear: this.setViewYear,
+        showDatePicker: this.state.showDatePicker,
+        showDateTimePicker: this.state.showDateTimePicker,
+        showTimePicker: this.state.showTimePicker,
+        showToday: this.props.showToday,
+        subtractDecade: this.subtractDecade,
+        subtractHour: this.subtractHour,
+        subtractMinute: this.subtractMinute,
+        subtractMonth: this.subtractMonth,
+        subtractYear: this.subtractYear,
+        togglePeriod: this.togglePeriod,
+        togglePicker: this.togglePicker,
+        viewDate: this.state.viewDate,
+        viewMode: this.props.viewMode,
+        widgetClasses: this.state.widgetClasses,
+        widgetStyle: this.state.widgetStyle
+    });
   }
 
   render() {

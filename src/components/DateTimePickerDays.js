@@ -40,11 +40,13 @@ export default class DateTimePickerDays extends Component {
       let classes = {
         day: true
       };
+
       if (prevMonth.year() < year || (prevMonth.year() === year && prevMonth.month() < month)) {
         classes.old = true;
       } else if (prevMonth.year() > year || (prevMonth.year() === year && prevMonth.month() > month)) {
         classes.new = true;
       }
+
       if (prevMonth.isSame(moment({
         y: this.props.selectedDate.year(),
         M: this.props.selectedDate.month(),
@@ -52,15 +54,19 @@ export default class DateTimePickerDays extends Component {
       }))) {
         classes.active = true;
       }
-      if (this.props.showToday) {
-        if (prevMonth.isSame(moment(), "day")) {
+
+      if (this.props.showToday && prevMonth.isSame(moment(), "day")) {
           classes.today = true;
-        }
       }
+
       if ((minDate && prevMonth.isBefore(minDate)) || (maxDate && prevMonth.isAfter(maxDate))) {
         classes.disabled = true;
       }
-      if (this.props.daysOfWeekDisabled.length > 0) classes.disabled = this.props.daysOfWeekDisabled.indexOf(prevMonth.day()) !== -1;
+
+      if (this.props.daysOfWeekDisabled.length > 0) {
+        classes.disabled = !!~this.props.daysOfWeekDisabled.indexOf(prevMonth.day());
+      }
+
       cells.push(
         <td key={prevMonth.month() + "-" + prevMonth.date()} 
             className={classnames(classes)} 

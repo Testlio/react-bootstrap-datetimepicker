@@ -4,12 +4,12 @@ import CSSModules from 'react-css-modules';
 
 import DatePicker from "./components/datepicker.js";
 import TimePicker from "./components/timepicker.js";
-import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
+import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
 import Constants from "./constants/Constants.js";
 import styles from './css/widget.css';
 
 @CSSModules(styles, { allowMultiple: true })
-export default class DateTimePicker extends Component {
+export default class DateTimePickerSide extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
     showTimePicker: PropTypes.bool,
@@ -41,7 +41,8 @@ export default class DateTimePicker extends Component {
     widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
     setSelectedHour: PropTypes.func,
-    setSelectedMinute: PropTypes.func
+    setSelectedMinute: PropTypes.func,
+    setSelectedTime: PropTypes.func
   }
 
   renderDatePicker = () => {
@@ -83,6 +84,7 @@ export default class DateTimePicker extends Component {
         <TimePicker
           addHour={this.props.addHour}
           addMinute={this.props.addMinute}
+          mode={this.props.mode}
           selectedDate={this.props.selectedDate}
           setSelectedHour={this.props.setSelectedHour}
           setSelectedMinute={this.props.setSelectedMinute}
@@ -97,14 +99,12 @@ export default class DateTimePicker extends Component {
 
   render() {
     return (
-      <div 
-        styleName="widget"
-        className={classnames(this.props.widgetClasses)} 
-        style={this.props.widgetStyle}
-        >
+      <div styleName="widget wide" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
         <ul className="list-unstyled">
-          <ModeSwitcher onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> 
           {this.renderDatePicker()}
+          <li setSelectedTime={this.props.setSelectedTime} styleName="right-side">
+            <TimeSidePanel />
+          </li>
           {this.renderTimePicker()}
         </ul>
       </div>

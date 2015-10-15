@@ -1,112 +1,51 @@
 import React, { Component, PropTypes } from "react";
-import { Glyphicon } from "react-bootstrap";
-import DateTimePickerMinutes from "./components/DateTimePickerMinutes";
-import DateTimePickerHours from "./components/DateTimePickerHours";
-import DateTimePickerHoursSide from './components/DateTimePickerHoursSide';
-import Constants from "./constants/Constants.js";
+import classnames from "classnames";
+import CSSModules from 'react-css-modules';
 
-export default class Timepicker extends Component {
+import TimePicker from "./components/timepicker.js";
+import styles from './css/widget.css';
+
+@CSSModules(styles, { allowMultiple: true })
+export default class DateTimePicker extends Component {
   static propTypes = {
-    setSelectedHour: PropTypes.func.isRequired,
-    setSelectedMinute: PropTypes.func.isRequired,
+    showTimePicker: PropTypes.bool,
+    viewDate: PropTypes.object.isRequired,
+    selectedDate: PropTypes.object.isRequired,
     subtractHour: PropTypes.func.isRequired,
     addHour: PropTypes.func.isRequired,
     subtractMinute: PropTypes.func.isRequired,
     addMinute: PropTypes.func.isRequired,
-    viewDate: PropTypes.object.isRequired,
-    selectedDate: PropTypes.object.isRequired,
     togglePeriod: PropTypes.func.isRequired,
-    mode: PropTypes.oneOf([
-      Constants.MODE_DATE,
-      Constants.MODE_DATETIME,
-      Constants.MODE_TIME,
-      Constants.MODE_DATETIME_SIDE
-    ])
-  }
-
-  state = {
-    minutesDisplayed: false,
-    hoursDisplayed: false
-  }
-
-  goBack = () => {
-    return this.setState({
-      minutesDisplayed: false,
-      hoursDisplayed: false
-    });
-  }
-
-  showMinutes = () => {
-    return this.setState({
-      minutesDisplayed: true
-    });
-  }
-
-  showHours = () => {
-    return this.setState({
-      hoursDisplayed: true
-    });
-  }
-
-  renderMinutes = () => {
-    if (this.state.minutesDisplayed) {
-      return <DateTimePickerMinutes {...this.props} onSwitch={this.goBack} />;
-    } else {
-      return null;
-    }
-  }
-
-  renderHours = () => {
-    if (this.state.hoursDisplayed) {
-      return <DateTimePickerHours {...this.props} onSwitch={this.goBack} />;
-    } else {
-      return null;
-    }
-  }
-
-  renderPicker = () => {
-    if (!this.state.minutesDisplayed && !this.state.hoursDisplayed) {
-      return (
-      <div className="timepicker-picker">
-        <table className="table-condensed">
-          <tbody>
-            <tr>
-              <td><a className="btn" onClick={this.props.addHour}><Glyphicon glyph="chevron-up" /></a></td>
-              <td className="separator"></td>
-              <td><a className="btn" onClick={this.props.addMinute}><Glyphicon glyph="chevron-up" /></a></td>
-              <td className="separator"></td>
-            </tr>
-
-            <tr>
-              <td><span className="timepicker-hour" onClick={this.showHours}>{this.props.selectedDate.format("h")}</span></td>
-              <td className="separator">:</td>
-              <td><span className="timepicker-minute" onClick={this.showMinutes}>{this.props.selectedDate.format("mm")}</span></td>
-              <td className="separator"></td>
-              <td><button className="btn btn-primary" onClick={this.props.togglePeriod} type="button">{this.props.selectedDate.format("A")}</button></td>
-            </tr>
-
-            <tr>
-              <td><a className="btn" onClick={this.props.subtractHour}><Glyphicon glyph="chevron-down" /></a></td>
-              <td className="separator"></td>
-              <td><a className="btn" onClick={this.props.subtractMinute}><Glyphicon glyph="chevron-down" /></a></td>
-              <td className="separator"></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      );
-    } else {
-      return "";
-    }
+    widgetClasses: PropTypes.object,
+    widgetStyle: PropTypes.object,
+    togglePicker: PropTypes.func,
+    setSelectedHour: PropTypes.func,
+    setSelectedMinute: PropTypes.func
   }
 
   render() {
     return (
-        <div className="timepicker">
-          {this.renderPicker()}
-          {this.renderHours()}
-          {this.renderMinutes()}
-        </div>
+      <div 
+        styleName="widget"
+        className={classnames(this.props.widgetClasses)} 
+        style={this.props.widgetStyle}
+        >
+        <ul className="list-unstyled">
+          <li>
+            <TimePicker
+              addHour={this.props.addHour}
+              addMinute={this.props.addMinute}
+              selectedDate={this.props.selectedDate}
+              setSelectedHour={this.props.setSelectedHour}
+              setSelectedMinute={this.props.setSelectedMinute}
+              subtractHour={this.props.subtractHour}
+              subtractMinute={this.props.subtractMinute}
+              togglePeriod={this.props.togglePeriod}
+              viewDate={this.props.viewDate}
+            />
+          </li>
+        </ul>
+      </div>
     );
   }
 }

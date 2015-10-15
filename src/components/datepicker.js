@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from "react";
 import classnames from "classnames";
 import CSSModules from 'react-css-modules';
 
-import DateTimePickerDays from "./components/DateTimePickerDays";
-import DateTimePickerMonths from "./components/DateTimePickerMonths";
-import DateTimePickerYears from "./components/DateTimePickerYears";
-import styles from './css/datepicker.css';
+import DateTimePickerDays from "./DateTimePickerDays";
+import DateTimePickerMonths from "./DateTimePickerMonths";
+import DateTimePickerYears from "./DateTimePickerYears";
+import styles from '../css/datepicker.css';
 
 @CSSModules(styles)
 export default class DatePicker extends Component {
@@ -86,59 +86,65 @@ export default class DatePicker extends Component {
   }
 
   renderDays = () => {
-    if (!this.state.daysDisplayed) {
+    if (this.state.daysDisplayed) {
+      return (
+      <DateTimePickerDays
+            addMonth={this.props.addMonth}
+            daysOfWeekDisabled={this.props.daysOfWeekDisabled}
+            maxDate={this.props.maxDate}
+            minDate={this.props.minDate}
+            selectedDate={this.props.selectedDate}
+            showMonths={this.showMonths}
+            showToday={this.props.showToday}
+            subtractMonth={this.props.subtractMonth}
+            viewDate={this.props.viewDate}
+      />
+      );
+    } else {
       return null;
     }
-    return (
-      <DateTimePickerDays
-        addMonth={this.props.addMonth}
-        daysOfWeekDisabled={this.props.daysOfWeekDisabled}
-        maxDate={this.props.maxDate}
-        minDate={this.props.minDate}
-        selectedDate={this.props.selectedDate}
-        showMonths={this.showMonths}
-        showToday={this.props.showToday}
-        subtractMonth={this.props.subtractMonth}
-        viewDate={this.props.viewDate}
-      />
-    );
   }
 
   renderMonths = () => {
-    if (!this.state.monthsDisplayed) {
+    if (this.state.monthsDisplayed) {
+      return (
+      <DateTimePickerMonths
+            addYear={this.props.addYear}
+            selectedDate={this.props.selectedDate}
+            setViewMonth={this.setViewMonth}
+            showYears={this.showYears}
+            subtractYear={this.props.subtractYear}
+            viewDate={this.props.viewDate}
+      />
+      );
+    } else {
       return null;
     }
-    return (
-      <DateTimePickerMonths
-        addYear={this.props.addYear}
-        selectedDate={this.props.selectedDate}
-        setViewMonth={this.setViewMonth}
-        showYears={this.showYears}
-        subtractYear={this.props.subtractYear}
-        viewDate={this.props.viewDate}
-      />
-    );
   }
 
   renderYears = () => {
-    if (!this.state.yearsDisplayed) {
+    if (this.state.yearsDisplayed) {
+      return (
+      <DateTimePickerYears
+            addDecade={this.props.addDecade}
+            selectedDate={this.props.selectedDate}
+            setViewYear={this.setViewYear}
+            subtractDecade={this.props.subtractDecade}
+            viewDate={this.props.viewDate}
+      />
+      );
+    } else {
       return null;
     }
-
-    return (
-      <DateTimePickerYears
-        addDecade={this.props.addDecade}
-        selectedDate={this.props.selectedDate}
-        setViewYear={this.setViewYear}
-        subtractDecade={this.props.subtractDecade}
-        viewDate={this.props.viewDate}
-      />
-    );
   }
 
   render() {
     return (
-      <div styleName="datepicker" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
+      <div 
+        styleName="datepicker"
+        className={classnames(this.props.widgetClasses)} 
+        style={this.props.widgetStyle}
+        >
         <ul className="list-unstyled">
           <li>
             <div className="datepicker">
