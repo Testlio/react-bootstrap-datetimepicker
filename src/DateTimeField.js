@@ -19,18 +19,6 @@ export default class DateTimeField extends Component {
     onChange: (x) => { }
   }
 
-  resolvePropsInputFormat = () => {
-    if (this.props.inputFormat) { return this.props.inputFormat; }
-    switch (this.props.mode) {
-      case Constants.MODE_TIME:
-        return "h:mm A";
-      case Constants.MODE_DATE:
-        return "MM/DD/YY";
-      default:
-        return "MM/DD/YY h:mm A";
-    }
-  }
-
   static propTypes = {
     dateTime: PropTypes.string,
     onChange: PropTypes.func,
@@ -53,21 +41,36 @@ export default class DateTimeField extends Component {
     daysOfWeekDisabled: PropTypes.arrayOf(PropTypes.integer)
   }
 
+
+  resolvePropsInputFormat = () => {
+    if (this.props.inputFormat) { return this.props.inputFormat; }
+    switch (this.props.mode) {
+      case Constants.MODE_TIME:
+        return "h:mm A";
+      case Constants.MODE_DATE:
+        return "MM/DD/YY";
+      default:
+        return "MM/DD/YY h:mm A";
+    }
+  }
+
   state = {
-      showDatePicker: this.props.mode !== Constants.MODE_TIME,
-      showDateTimePicker: this.props.mode !== Constants.MODE_DATETIME,
-      showTimePicker: this.props.mode === Constants.MODE_TIME,
-      inputFormat: this.resolvePropsInputFormat(),
-      buttonIcon: this.props.mode === Constants.MODE_TIME ? "time" : "calendar",
-      widgetStyle: {
-        display: "block",
-        position: "absolute",
-        left: -9999,
-        zIndex: "9999 !important"
-      },
-      viewDate: moment(this.props.dateTime, this.props.format, true).startOf("month"),
-      selectedDate: moment(this.props.dateTime, this.props.format, true),
-      inputValue: this.props.defaultText || moment(this.props.dateTime, this.props.format, true).format(this.resolvePropsInputFormat())
+    showDatePicker: this.props.mode !== Constants.MODE_TIME,
+    hourChanged: false,
+    minuteChanged: false, 
+    showDateTimePicker: this.props.mode !== Constants.MODE_DATETIME,
+    showTimePicker: this.props.mode === Constants.MODE_TIME,
+    inputFormat: this.resolvePropsInputFormat(),
+    buttonIcon: this.props.mode === Constants.MODE_TIME ? "time" : "calendar",
+    widgetStyle: {
+      display: "block",
+      position: "absolute",
+      left: -9999,
+      zIndex: "9999 !important"
+    },
+    viewDate: moment(this.props.dateTime, this.props.format, true).startOf("month"),
+    selectedDate: moment(this.props.dateTime, this.props.format, true),
+    inputValue: this.props.defaultText || moment(this.props.dateTime, this.props.format, true).format(this.resolvePropsInputFormat())
   }
 
   componentWillReceiveProps = (nextProps) => {
@@ -94,7 +97,6 @@ export default class DateTimeField extends Component {
         viewDate: moment(value, state.inputFormat, true).startOf("month")
       });
     }
-
     return this.setState({
       inputValue: value
     }, function() {
@@ -121,19 +123,31 @@ export default class DateTimeField extends Component {
         .date(date)
         .hour(selectedDate.hours())
         .minute(selectedDate.minutes())
-    )
+    );
   }
 
   setSelectedDate = (selectedDate) => {
+    const oldTime = this.state.selectedDate;
     return this.setState({
-      selectedDate: selectedDate
+      hourChanged   : this.state.hourChanged   || oldTime.hour()   !== selectedDate.hour(),
+      minuteChanged : this.state.minuteChanged || oldTime.minute() !== selectedDate.minute(),
+      selectedDate  : selectedDate
     }, function() {
-      this.closePicker();
+      this.closePickerIfPossible();
       this.props.onChange(this.state.selectedDate.format(this.props.format));
       return this.setState({
         inputValue: this.state.selectedDate.format(this.state.inputFormat)
       });
     });
+  }
+
+  closePickerIfPossible = () => {
+    if (this.props.mode !== Constants.MODE_DATETIME_SIDE) {
+      return this.closePicker();
+    } 
+    if (this.state.minuteChanged && this.state.hourChanged) {
+      this.closePicker();
+    }
   }
 
   setViewMonth = (month) => {
@@ -293,11 +307,13 @@ export default class DateTimeField extends Component {
   }
 
   closePicker = () => {
-    let style = this.state.widgetStyle;
-    style.left = -9999;
+    let style     = this.state.widgetStyle;
+    style.left    = -9999;
     style.display = "none";
     return this.setState({
       showPicker: false,
+      hourChanged: 0,
+      minuteChanged: 0,
       widgetStyle: style
     });
   }

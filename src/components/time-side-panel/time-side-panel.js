@@ -13,29 +13,35 @@ export default class TimeSidePanel extends Component {
     selectedDate: PropTypes.object.isRequired
   }
 
-  state = {
-    selectedTime: null
-  }
-
   onSelectTime(time) {
-    this.setState({ selectedTime : time }, () => {
-      let splitted = (time + '').split(':');
-      console.log(this.props.selectedDate);
-      let newDate = this.props.selectedDate.clone();
-      this.props.setSelectedDate(newDate.hour(splitted[0]).minute(splitted[1] || 0));
-    });
+    let { hour, minute } = this.destructTime(time)
+    let newDate = this.props.selectedDate.clone();
+    this.props.setSelectedDate(
+      newDate.hour(hour).minute(minute)
+    );
   }
     
+  destructTime(time) {
+    let split = (time + '').split(':');
+    return {
+      hour: split[0] || 0,
+      minute: split[1] || 0
+    }
+  }
+
   renderTimes = () => {
-    let i = 0
     return this.props.timesShown.map((time, index) => {
+      const { hour, minute } = this.destructTime(time);
+      const date             = this.props.selectedDate;
+      const isSameTime       = date.isSame(date.clone().minute(minute).hour(hour));
       return (
         <li 
           key={index}
-          styleName={this.state.selectedTime === time ? 'selected' : ''} >
-          <btn 
+          styleName={isSameTime ? 'selected' : ''} >
+          <button 
             className="btn btn-link"
-            onClick={this.onSelectTime.bind(this, time)}>{convertToAmPm(time)}</btn>
+            onClick={this.onSelectTime.bind(this, time)}>{convertToAmPm({ hour, minute })}
+          </button>
         </li>
       );
     });
