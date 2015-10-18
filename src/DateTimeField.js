@@ -8,7 +8,7 @@ import DatePicker from './datepicker.js';
 import TimePicker from './timepicker.js';
 import Constants from "./constants/constants.js";
 
-export default class DateTimeField extends Component {
+class DateTimeField extends Component {
   static defaultProps = {
     dateTime: moment().format("x"),
     format: "x",
@@ -408,4 +408,12 @@ export default class DateTimeField extends Component {
       </div>
     );
   }
+}
+
+export default DateTimeField;
+export {
+  DateTimePicker,
+  DateTimePickerSide,
+  DatePicker,
+  TimePicker 
 }
