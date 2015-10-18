@@ -1,22 +1,6 @@
 var webpack = require("webpack");
 var path = require("path");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var plugins = [
-  new webpack.DefinePlugin({
-    "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
-  }),
-  new ExtractTextPlugin('react-bootstrap-datetimepicker.css', { allChunks: true })
-]
-
-if (process.env.COMPRESS) {
-  plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compressor: {
-        warnings: false
-      }
-    })
-  );
-} 
 
 module.exports = {
 
@@ -51,5 +35,10 @@ module.exports = {
     ]
   },
 
-  plugins: plugins
+  plugins: [
+    new webpack.DefinePlugin({
+      "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
+    }),
+    new ExtractTextPlugin('react-bootstrap-datetimepicker.css', { allChunks: true })
+  ]
 };
