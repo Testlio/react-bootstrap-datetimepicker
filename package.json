@@ -9,11 +9,9 @@
   },
   "main": "./dist/react-bootstrap-datetimepicker.js",
   "scripts": {
-    "build-basic": "NODE_ENV=production webpack --output-filename react-bootstrap-datetimepicker.js",
-    "build-min": "NODE_ENV=production COMPRESS=1 webpack --output-filename react-bootstrap-datetimepicker.min.js",
+    "build": "rm -rf ./dist && NODE_ENV=production webpack --output-filename react-bootstrap-datetimepicker.js",
     "dev": "webpack-dev-server --config ./webpack.dev.config.js",
     "test": "jest",
-    "build": "rm -rf ./dist && npm run build-basic && npm run build-min",
     "lint": "eslint ."
   },
   "keywords": [

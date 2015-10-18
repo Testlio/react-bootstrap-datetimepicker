@@ -1,12 +1,12 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("React"), require("moment"), require("ReactBootstrap"));
+		module.exports = factory(require("react"), require("moment"), require("react-bootstrap"));
 	else if(typeof define === 'function' && define.amd)
-		define(["React", "moment", "ReactBootstrap"], factory);
+		define(["react", "moment", "react-bootstrap"], factory);
 	else if(typeof exports === 'object')
-		exports["ReactBootstrapDatetimepicker"] = factory(require("React"), require("moment"), require("ReactBootstrap"));
+		exports["datetimepicker"] = factory(require("react"), require("moment"), require("react-bootstrap"));
 	else
-		root["ReactBootstrapDatetimepicker"] = factory(root["React"], root["moment"], root["ReactBootstrap"]);
+		root["datetimepicker"] = factory(root["react"], root["moment"], root["react-bootstrap"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_42__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -54,8 +54,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	__webpack_require__(1);
-	(function webpackMissingModule() { throw new Error("Cannot find module \"build-min\""); }());
+	module.exports = __webpack_require__(1);
 
 
 /***/ },
