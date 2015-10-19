@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define(["react", "moment", "react-bootstrap"], factory);
 	else if(typeof exports === 'object')
-		exports["datetimepicker"] = factory(require("react"), require("moment"), require("react-bootstrap"));
+		exports["react-bootstrap-datetimepicker"] = factory(require("react"), require("moment"), require("react-bootstrap"));
 	else
-		root["datetimepicker"] = factory(root["react"], root["moment"], root["react-bootstrap"]);
+		root["react-bootstrap-datetimepicker"] = factory(root["react"], root["moment"], root["react-bootstrap"]);
 })(this, function(__WEBPACK_EXTERNAL_MODULE_40__, __WEBPACK_EXTERNAL_MODULE_41__, __WEBPACK_EXTERNAL_MODULE_42__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -527,7 +527,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	})(_react.Component);
 
 	exports["default"] = DateTimeField;
-	module.exports = exports["default"];
+	exports.DateTimePicker = _datetimepickerJs2["default"];
+	exports.DateTimePickerSide = _datetimepickerSideJs2["default"];
+	exports.DatePicker = _datepickerJs2["default"];
+	exports.TimePicker = _timepickerJs2["default"];
 
 /***/ },
 /* 2 */
