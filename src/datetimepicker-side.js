@@ -6,8 +6,10 @@ import DatePicker from "./components/datepicker.js";
 import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
 import styles from './css/widget.css';
 
+import picker from './composers/picker.js'
+
 @CSSModules(styles, { allowMultiple: true })
-export default class DateTimePickerSide extends Component {
+class DateTimePickerSide extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
     showTimePicker: PropTypes.bool,
@@ -88,3 +90,5 @@ export default class DateTimePickerSide extends Component {
     );
   }
 }
+
+export default picker(DateTimePickerSide);

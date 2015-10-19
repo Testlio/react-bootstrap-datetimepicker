@@ -89,7 +89,7 @@ export default class Basic extends Component {
             Side by side datetime hours picker
             <DateTimeField
               mode="datetime-side"
-              timeShown={[1,2,3,4,5,6,7,8,9,'10:20',11,'12:5',13,14,15,16,17,18,19]}
+              timesShown={[1,2,3,4,5,6,7,8,9,'10:20',11,'12:5',13,14,15,16,17,18,19]}
             />
             <pre> 
               {'<DateTimeField mode="datetime-side" timeShown={[1,5,6,7,8,9,"10:20",11,"12:5",1317,18,19]} />'} 

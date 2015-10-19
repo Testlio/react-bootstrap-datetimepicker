@@ -5,8 +5,10 @@ import CSSModules from 'react-css-modules';
 import TimePicker from "./components/timepicker.js";
 import styles from './css/widget.css';
 
+import picker from './composers/picker.js';
+
 @CSSModules(styles, { allowMultiple: true })
-export default class DateTimePicker extends Component {
+class DateTimePicker extends Component {
   static propTypes = {
     showTimePicker: PropTypes.bool,
     viewDate: PropTypes.object.isRequired,
@@ -49,3 +51,5 @@ export default class DateTimePicker extends Component {
     );
   }
 }
+
+export default picker(TimePicker);

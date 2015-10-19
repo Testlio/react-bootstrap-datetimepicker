@@ -7,9 +7,10 @@ import TimePicker from "./components/timepicker.js";
 import ModeSwitcher from './components/mode-switcher/mode-switcher.js'
 import Constants from "./constants/constants.js";
 import styles from './css/widget.css';
+import picker from './composers/picker.js'
 
 @CSSModules(styles, { allowMultiple: true })
-export default class DateTimePicker extends Component {
+class DateTimePicker extends Component {
   static propTypes = {
     showDatePicker: PropTypes.bool,
     showTimePicker: PropTypes.bool,
@@ -111,3 +112,5 @@ export default class DateTimePicker extends Component {
     );
   }
 }
+
+export default picker(DateTimePicker);

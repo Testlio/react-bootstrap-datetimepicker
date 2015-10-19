@@ -8,9 +8,10 @@ import DateTimePickerYears from "./components/DateTimePickerYears";
 import DatesPicker from './components/datepicker.js'
 
 import styles from './css/widget.css';
+import picker from './composers/picker.js';
 
 @CSSModules(styles, { allowMultiple: true })
-export default class DatePicker extends Component {
+class DatePicker extends Component {
   static propTypes = {
     subtractMonth: PropTypes.func.isRequired,
     addMonth: PropTypes.func.isRequired,
@@ -62,3 +63,5 @@ export default class DatePicker extends Component {
     );
   }
 }
+
+export default picker(DatePicker);
