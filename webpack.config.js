@@ -39,6 +39,6 @@ module.exports = {
     new webpack.DefinePlugin({
       "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV)
     }),
-    new ExtractTextPlugin('react-bootstrap-datetimepicker.css', { allChunks: true })
+    new ExtractTextPlugin('styles.css', { allChunks: true })
   ]
 };

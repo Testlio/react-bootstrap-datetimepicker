@@ -1,0 +1,251 @@
+.date-time-picker-days__day-of-week___u1tnB th {
+  width: 14.2857% !important;
+}
+
+.date-time-picker-days__base___2T5Q9 { 
+  display: block;
+}
+
+.date-time-picker-days__disabled___17bBz:hover,
+.date-time-picker-days__disabled___17bBz {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.date-time-picker-days__active___2vswa.date-time-picker-days__today___10gyp:before {
+  border-bottom-color: #fff;
+}
+
+.date-time-picker-days__today___10gyp:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-bottom: 7px solid #428bca;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+}
+
+.date-time-picker-days__today___10gyp {
+  position: relative;
+}
+
+.date-time-picker-days__day___2SIJL:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+
+.date-time-picker-days__old___1E8vP,
+.date-time-picker-days__new___2iWio {
+  color: #999999;
+}
+
+.date-time-picker-days__active___2vswa {
+  background: #eee;
+}
+.next-prev-changer__next___TwZgO,
+.next-prev-changer__prev___3V3iC {
+  font-size: 21px;
+}
+.next-prev-changer__switch___1tL7S {
+  width: 145px;
+}
+.datepicker__datepicker___2Eoar {
+  width: 250px;
+  float: left;
+}
+.mode-switcher__picker-switch___1x61i {
+  text-align: center;
+  width: 100%;
+}
+/*!
+ * Datetimepicker for Bootstrap v3
+ * https://github.com/Eonasdan/bootstrap-datetimepicker/
+ */
+.widget__widget___3fXFu {
+  top: 0;
+  left: 0;
+  margin-top: 1px;
+  z-index: 99999 !important;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+.widget__widget___3fXFu.widget__timepicker-sbs___2jAbM {
+  width: 600px;
+}
+
+.widget__widget___3fXFu.widget__bottom___-6Tde:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -7px;
+  left: 7px;
+}
+.widget__widget___3fXFu.widget__bottom___-6Tde:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid white;
+  position: absolute;
+  top: -6px;
+  left: 8px;
+}
+.widget__widget___3fXFu.widget__top___2yTOa:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 7px solid #ccc;
+  border-top-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -7px;
+  left: 6px;
+}
+.widget__widget___3fXFu.widget__top___2yTOa:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid white;
+  position: absolute;
+  bottom: -6px;
+  left: 7px;
+}
+.widget__widget___3fXFu.widget__pull-right___1iZ6B:before {
+  left: auto;
+  right: 6px;
+}
+.widget__widget___3fXFu.widget__pull-right___1iZ6B:after {
+  left: auto;
+  right: 7px;
+}
+.widget__widget___3fXFu > ul {
+  list-style-type: none;
+  margin: 0;
+}
+.widget__widget___3fXFu .widget__timepicker-hour___yKTId,
+.widget__widget___3fXFu .widget__timepicker-minute___3pdDA,
+.widget__widget___3fXFu .widget__timepicker-second___3euia {
+  width: 100%;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+.widget__widget___3fXFu table[data-hour-format="12"] .widget__separator___q1q2K {
+  width: 4px;
+  padding: 0;
+  margin: 0;
+}
+.widget__widget___3fXFu .widget__datepicker___38_rc > div {
+  display: none;
+}
+.widget__widget___3fXFu table {
+  width: 100%;
+  margin: 0;
+}
+.widget__widget___3fXFu td,
+.widget__widget___3fXFu th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
+.widget__widget___3fXFu td.widget__hour___3NOXy:hover,
+.widget__widget___3fXFu td.widget__minute___16a-Q:hover,
+.widget__widget___3fXFu td.widget__second___2EROI:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.widget__widget___3fXFu td.widget__active___3KVz9,
+.widget__widget___3fXFu td.widget__active___3KVz9:hover {
+  background-color: #428bca;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.widget__widget___3fXFu td.widget__disabled___3sPo0,
+.widget__widget___3fXFu td.widget__disabled___3sPo0:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.widget__widget___3fXFu td span {
+  display: block;
+  width: 47px;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.widget__widget___3fXFu td span:hover {
+  background: #eeeeee;
+}
+
+.widget__widget___3fXFu td span.widget__active___3KVz9 {
+  background-color: #428bca;
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+.widget__widget___3fXFu td span.widget__old___38IBP {
+  color: #999999;
+}
+
+.widget__widget___3fXFu td span.widget__disabled___3sPo0,
+.widget__widget___3fXFu td span.widget__disabled___3sPo0:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.widget__widget___3fXFu th.widget__disabled___3sPo0,
+.widget__widget___3fXFu th.widget__disabled___3sPo0:hover {
+  background: none;
+  color: #999999;
+  cursor: not-allowed;
+}
+
+.widget__widget___3fXFu thead tr:first-child th {
+  cursor: pointer;
+}
+
+.widget__widget___3fXFu thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+
+.widget__widget___3fXFu ul.widget__list-unstyled___gwHmb li div.widget__timepicker___3eGjD div.widget__timepicker-picker___3Vueh table.widget__table-condensed___O9OoF tbody > tr > td {
+  padding: 0px !important;
+}
+
+.widget__widget___3fXFu.widget__wide___1L6kX {
+  width: 420px;
+  height: 280px;
+}
+
+.widget__right-side___-S7eD {
+  margin-top: 5px;
+  padding: 5px;
+  float: right;
+  width: 125px;
+  overflow: auto;
+  height: 240px;
+}
+.time-side-panel__side-panel___2Jhij li {
+  padding-left: 20px;
+}
+
+.time-side-panel__selected___2UTOt {
+  background: #eeeeee;
+  border-radius: 4px;
+}
