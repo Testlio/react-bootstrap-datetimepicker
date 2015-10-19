@@ -52,4 +52,4 @@ class DateTimePicker extends Component {
   }
 }
 
-export default picker(TimePicker);
+export default picker(DateTimePicker);

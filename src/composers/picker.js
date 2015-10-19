@@ -77,6 +77,23 @@ export default function picker(Component) {
       });
     }
 
+    setSelectedDateByEvent = (e) => {
+      const { target } = e;
+      let month;
+      let date = +e.target.innerHTML;
+      let selectedDate = this.state.selectedDate;
+      if (target.className.indexOf("new") >= 0) month = this.state.viewDate.month() + 1;
+      else if (target.className.indexOf("old") >= 0) month = this.state.viewDate.month() - 1;
+      else month = this.state.viewDate.month();
+      this.setSelectedDate(
+        this.state.viewDate.clone()
+        .month(month)
+        .date(date)
+        .hour(selectedDate.hours())
+        .minute(selectedDate.minutes())
+      );
+    }
+
     onChange = (event) => {
       const value = event.target == null ? event : event.target.value;
       const state = this.state;
