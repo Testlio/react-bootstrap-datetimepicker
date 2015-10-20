@@ -5,9 +5,11 @@ import CSSModules from 'react-css-modules';
 import DateTimePickerDays from "./components/DateTimePickerDays";
 import DateTimePickerMonths from "./components/DateTimePickerMonths";
 import DateTimePickerYears from "./components/DateTimePickerYears";
-import DatesPicker from './components/datepicker.js'
+import DatesPicker from './components/datepicker.js';
 
 import styles from './css/widget.css';
+
+import sticky from './composers/sticky.js';
 import picker from './composers/picker.js';
 
 @CSSModules(styles, { allowMultiple: true })
@@ -64,4 +66,4 @@ class DatePicker extends Component {
   }
 }
 
-export default picker(DatePicker);
+export default sticky(picker(DatePicker));

@@ -1,8 +1,24 @@
 import React, { Component } from "react";
-import DateTimeField from "datetimepicker";
+import DateTimeField, { DateTimePickerSide } from "datetimepicker";
 import moment from "moment";
 
 export default class Basic extends Component {
+  state = {
+    isDateTimeSidePickerShown: false
+  }
+
+  showDateTimeSidePicker = () => {
+    this.setState({
+      isDateTimeSidePickerShown: true
+    })
+  }
+
+  resetTimeSidePicker = () => {
+    this.setState({
+      isDateTimeSidePickerShown: false
+    })
+  }
+
   render() {
     return (
       <div className="container">
@@ -94,6 +110,16 @@ export default class Basic extends Component {
             <pre> 
               {'<DateTimeField mode="datetime-side" timeShown={[1,5,6,7,8,9,"10:20",11,"12:5",1317,18,19]} />'} 
             </pre>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-xs-12">
+            Wrapped el
+            <button onClick={this.showDateTimeSidePicker} ref="pickerbtn">Show picker</button>
+            { this.state.isDateTimeSidePickerShown ? <DateTimePickerSide 
+              target={this.refs.pickerbtn} 
+              onClose={this.resetTimeSidePicker}
+              timesShown={[1,2,4]} /> : null }
           </div>
         </div>
       </div>

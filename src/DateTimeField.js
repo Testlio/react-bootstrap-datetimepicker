@@ -6,6 +6,7 @@ import DateTimePicker from "./datetimepicker.js";
 import DateTimePickerSide from './datetimepicker-side.js';
 import DatePicker from './datepicker.js';
 import TimePicker from './timepicker.js';
+
 import Constants from "./constants/constants.js";
 
 class DateTimeField extends Component {
@@ -16,7 +17,8 @@ class DateTimeField extends Component {
     viewMode: "days",
     daysOfWeekDisabled: [],
     mode: Constants.MODE_DATETIME,
-    onClose: () => { }
+    onClose: () => { },
+    onChange: () => { }
   }
 
   static propTypes = {
@@ -87,7 +89,7 @@ class DateTimeField extends Component {
       return null;
     }
 
-    let component = this.getPickerComponent();
+    const component = this.getPickerComponent();
     return React.createElement(component, {
       daysOfWeekDisabled: this.props.daysOfWeekDisabled,
       maxDate: this.props.maxDate,
@@ -119,7 +121,6 @@ class DateTimeField extends Component {
           <span 
             className="input-group-addon" 
             onClick={this.onClick} 
-            onBlur={this.onBlur} 
             ref="dtpbutton">
             <Glyphicon glyph={this.state.buttonIcon} /></span>
         </div>

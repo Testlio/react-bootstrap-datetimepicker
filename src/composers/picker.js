@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 
+import { assign } from 'lodash';
+
 import Constants from "../constants/constants.js";
 
 export default function picker(Component) {
@@ -13,12 +15,18 @@ export default function picker(Component) {
       viewMode: "days",
       daysOfWeekDisabled: [],
       mode: Constants.MODE_DATETIME,
-      onClose: () => { }
+      onClose: () => { },
+      onChange: () => { },
+      overlayStyles: {
+        position: "fixed",
+        top: 0, bottom: 0, left: 0, right: 0,
+        zIndex: 999
+      }
     }
 
     static propTypes = {
       dateTime: PropTypes.string,
-      onChange: PropTypes.func,
+      onChange: PropTypes.func.isRequired,
       format: PropTypes.string,
       inputFormat: PropTypes.string,
       defaultText: PropTypes.string,
@@ -35,7 +43,8 @@ export default function picker(Component) {
       showToday: PropTypes.bool,
       viewMode: PropTypes.string,
       daysOfWeekDisabled: PropTypes.arrayOf(PropTypes.integer),
-      onClose: PropTypes.func
+      onClose: PropTypes.func,
+      target: PropTypes.object
     }
 
     state = {
@@ -47,8 +56,11 @@ export default function picker(Component) {
       classes: {
         "bootstrap-datetimepicker-widget": true,
         "dropdown-menu": true,
-        "bottom": true,
         "pull-right": true
+      },
+      widgetStyle: {
+        display: "block",
+        position: "absolute"
       }
     }
 
@@ -67,13 +79,6 @@ export default function picker(Component) {
 
     componentWillMount() {
       return this.setState({
-        widgetStyle: {
-          display: "block",
-          position: "absolute",
-          top: 40,
-          left: "auto",
-          right: 40
-        }
       });
     }
 
@@ -219,59 +224,53 @@ export default function picker(Component) {
     }
 
     closePicker = () => {
-      let style     = this.state.widgetStyle;
-      style.left    = -9999;
-      style.display = "none";
       this.setState({
         showPicker: false,
-        widgetStyle: style
+        widgetStyle: assign(this.state.widgeStyle, {
+          left: -9999,
+          display: 'none'
+        })
       }, this.props.onClose);
     }
 
-    renderOverlay = () => {
-      const styles = {
-        position: "fixed",
-        top: 0,
-        bottom: 0,
-        left: 0,
-        right: 0,
-        zIndex: "999"
-      };
-      return <div style={styles} onClick={this.closePicker} />;
+    renderPicker() {
+      return (
+        <Component 
+          {...this.props} 
+          viewDate={this.state.viewDate}
+          addDecade={this.addDecade}
+          addHour={this.addHour}
+          addMinute={this.addMinute}
+          addMonth={this.addMonth}
+          addYear={this.addYear}
+          selectedDate={this.state.selectedDate}
+          setSelectedDateByEvent={this.setSelectedDateByEvent}
+          setSelectedHourByEvent={this.setSelectedHourByEvent}
+          setSelectedDate={this.setSelectedDate}
+          setSelectedMinuteByEvent={this.setSelectedMinuteByEvent}
+          setViewMonth={this.setViewMonth}
+          setViewYear={this.setViewYear}
+          showDatePicker={this.state.showDatePicker}
+          showDateTimePicker={this.state.showDateTimePicker}
+          showTimePicker={this.state.showTimePicker}
+          subtractDecade={this.subtractDecade}
+          subtractHour={this.subtractHour}
+          subtractMinute={this.subtractMinute}
+          subtractMonth={this.subtractMonth}
+          subtractYear={this.subtractYear}
+          togglePeriod={this.togglePeriod}
+          togglePicker={this.togglePicker}
+          widgetClasses={this.state.classes}
+          widgetStyle={this.state.widgetStyle}
+        />
+      );
     }
 
     render() {
       return (
         <div>
-          { this.renderOverlay() }
-          <Component 
-            {...this.props} 
-            viewDate={this.state.viewDate}
-            addDecade={this.addDecade}
-            addHour={this.addHour}
-            addMinute={this.addMinute}
-            addMonth={this.addMonth}
-            addYear={this.addYear}
-            selectedDate={this.state.selectedDate}
-            setSelectedDateByEvent={this.setSelectedDateByEvent}
-            setSelectedHourByEvent={this.setSelectedHourByEvent}
-            setSelectedDate={this.setSelectedDate}
-            setSelectedMinuteByEvent={this.setSelectedMinuteByEvent}
-            setViewMonth={this.setViewMonth}
-            setViewYear={this.setViewYear}
-            showDatePicker={this.state.showDatePicker}
-            showDateTimePicker={this.state.showDateTimePicker}
-            showTimePicker={this.state.showTimePicker}
-            subtractDecade={this.subtractDecade}
-            subtractHour={this.subtractHour}
-            subtractMinute={this.subtractMinute}
-            subtractMonth={this.subtractMonth}
-            subtractYear={this.subtractYear}
-            togglePeriod={this.togglePeriod}
-            togglePicker={this.togglePicker}
-            widgetClasses={this.state.classes}
-            widgetStyle={this.state.widgetStyle}
-          />
+          <div style={this.props.overlayStyles} onClick={this.closePicker} />
+          {this.renderPicker()}
         </div>
       );
     }

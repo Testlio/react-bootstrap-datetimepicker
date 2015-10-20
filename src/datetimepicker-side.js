@@ -3,10 +3,11 @@ import classnames from "classnames";
 import CSSModules from 'react-css-modules';
 
 import DatePicker from "./components/datepicker.js";
-import TimeSidePanel from './components/time-side-panel/time-side-panel.js'
+import TimeSidePanel from './components/time-side-panel/time-side-panel.js';
 import styles from './css/widget.css';
 
-import picker from './composers/picker.js'
+import picker from './composers/picker.js';
+import sticky from './composers/sticky.js';
 
 @CSSModules(styles, { allowMultiple: true })
 class DateTimePickerSide extends Component {
@@ -91,4 +92,4 @@ class DateTimePickerSide extends Component {
   }
 }
 
-export default picker(DateTimePickerSide);
+export default sticky(picker(DateTimePickerSide));

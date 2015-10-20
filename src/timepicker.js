@@ -6,6 +6,7 @@ import TimePicker from "./components/timepicker.js";
 import styles from './css/widget.css';
 
 import picker from './composers/picker.js';
+import sticky from './composers/sticky.js';
 
 @CSSModules(styles, { allowMultiple: true })
 class DateTimePicker extends Component {
@@ -52,4 +53,4 @@ class DateTimePicker extends Component {
   }
 }
 
-export default picker(DateTimePicker);
+export default sticky(picker(DateTimePicker));
