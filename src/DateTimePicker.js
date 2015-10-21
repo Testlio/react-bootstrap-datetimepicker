@@ -103,7 +103,9 @@ class DateTimePicker extends Component {
         styleName="widget datepicker"
         className={classnames(this.props.widgetClasses)} 
         >
-        <ul className="list-unstyled">
+        <ul 
+          styleName="widget-content"
+          className="widget-content list-unstyled">
           <ModeSwitcher onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> 
           {this.renderDatePicker()}
           {this.renderTimePicker()}

@@ -39,7 +39,7 @@ class DatePicker extends Component {
   render() {
     return (
       <div styleName="widget" className={classnames(this.props.widgetClasses)} >
-        <ul className="list-unstyled">
+        <ul styleName="widget-content" className="widget-content list-unstyled">
           <li>
             <DatesPicker
               addDecade={this.props.addDecade}

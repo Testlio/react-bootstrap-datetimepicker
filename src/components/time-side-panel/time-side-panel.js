@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from "react";
 import CSSModules from 'react-css-modules';
+import classnames from 'classnames';
 import moment from 'moment';
 
 import styles from './time-side-panel.css';
@@ -37,8 +38,12 @@ export default class TimeSidePanel extends Component {
       return (
         <li 
           key={index}
-          styleName={isSameTime ? 'selected' : ''} >
+          styleName={isSameTime ? 'selected' : ''} 
+          className={classnames({
+            active: isSameTime
+          })}>
           <button 
+            styleName="btn"
             className="btn btn-link"
             onClick={this.onSelectTime.bind(this, time)}>{convertToAmPm({ hour, minute })}
           </button>
@@ -50,8 +55,7 @@ export default class TimeSidePanel extends Component {
   render() {
     return (
       <ul 
-        styleName="side-panel" 
-        className="list-unstyled">
+        className="list-unstyled side-panel">
         { this.renderTimes() }
       </ul>
     );

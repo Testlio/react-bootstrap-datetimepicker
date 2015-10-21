@@ -50,7 +50,7 @@ class DateTimePickerSide extends Component {
     }
 
     return (
-      <li className="pull-left">
+      <li className="pull-left left-panel">
         <DatePicker
           addDecade={this.props.addDecade}
           addMonth={this.props.addMonth}
@@ -76,9 +76,11 @@ class DateTimePickerSide extends Component {
   render() {
     return (
       <div styleName="widget wide" className={classnames(this.props.widgetClasses)} >
-        <ul className="list-unstyled">
+        <ul styleName="widget-content" className="widget-content list-unstyled">
           {this.renderDatePicker()}
-          <li styleName="right-side">
+          <li 
+            className="right-panel"
+            styleName="right-panel">
             <TimeSidePanel 
               selectedDate={this.props.selectedDate}
               timesShown={this.props.timesShown}

@@ -857,7 +857,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: "list-unstyled" },
+	          {
+	            styleName: "widget-content",
+	            className: "widget-content list-unstyled" },
 	          _react2["default"].createElement(_componentsModeSwitcherModeSwitcherJs2["default"], { onSwitch: this.props.togglePicker, showTimePicker: this.props.showTimePicker }),
 	          this.renderDatePicker(),
 	          this.renderTimePicker()
@@ -3684,10 +3686,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _cssDatepickerCss2 = _interopRequireDefault(_cssDatepickerCss);
 
-	var DatePicker = (function (_Component) {
-	  _inherits(DatePicker, _Component);
+	var DatesPicker = (function (_Component) {
+	  _inherits(DatesPicker, _Component);
 
-	  _createClass(DatePicker, null, [{
+	  _createClass(DatesPicker, null, [{
 	    key: "propTypes",
 	    value: {
 	      subtractMonth: _react.PropTypes.func.isRequired,
@@ -3710,12 +3712,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    enumerable: true
 	  }]);
 
-	  function DatePicker(props) {
+	  function DatesPicker(props) {
 	    var _this = this;
 
-	    _classCallCheck(this, _DatePicker);
+	    _classCallCheck(this, _DatesPicker);
 
-	    _get(Object.getPrototypeOf(_DatePicker.prototype), "constructor", this).call(this, props);
+	    _get(Object.getPrototypeOf(_DatesPicker.prototype), "constructor", this).call(this, props);
 
 	    this.showMonths = function () {
 	      return _this.setState({
@@ -3818,7 +3820,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    this.state = viewModes[viewMode] || viewModes[_Object$keys(viewModes)[viewMode]] || viewModes.days;
 	  }
 
-	  _createClass(DatePicker, [{
+	  _createClass(DatesPicker, [{
 	    key: "render",
 	    value: function render() {
 	      return _react2["default"].createElement(
@@ -3831,12 +3833,12 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }
 	  }]);
 
-	  var _DatePicker = DatePicker;
-	  DatePicker = (0, _reactCssModules2["default"])(_cssDatepickerCss2["default"])(DatePicker) || DatePicker;
-	  return DatePicker;
+	  var _DatesPicker = DatesPicker;
+	  DatesPicker = (0, _reactCssModules2["default"])(_cssDatepickerCss2["default"])(DatesPicker) || DatesPicker;
+	  return DatesPicker;
 	})(_react.Component);
 
-	exports["default"] = DatePicker;
+	exports["default"] = DatesPicker;
 	module.exports = exports["default"];
 
 /***/ },
@@ -5265,7 +5267,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"widget":"widget__widget___3fXFu","timepicker-sbs":"widget__timepicker-sbs___2jAbM","bottom":"widget__bottom___-6Tde","top":"widget__top___2yTOa","pull-right":"widget__pull-right___1iZ6B","timepicker-hour":"widget__timepicker-hour___yKTId","timepicker-minute":"widget__timepicker-minute___3pdDA","timepicker-second":"widget__timepicker-second___3euia","separator":"widget__separator___q1q2K","datepicker":"widget__datepicker___38_rc","hour":"widget__hour___3NOXy","minute":"widget__minute___16a-Q","second":"widget__second___2EROI","active":"widget__active___3KVz9","disabled":"widget__disabled___3sPo0","old":"widget__old___38IBP","list-unstyled":"widget__list-unstyled___gwHmb","timepicker":"widget__timepicker___3eGjD","timepicker-picker":"widget__timepicker-picker___3Vueh","table-condensed":"widget__table-condensed___O9OoF","wide":"widget__wide___1L6kX","right-side":"widget__right-side___-S7eD"};
+	module.exports = {"widget":"widget__widget___3fXFu","widget-content":"widget__widget-content___3payV","timepicker-sbs":"widget__timepicker-sbs___2jAbM","bottom":"widget__bottom___-6Tde","top":"widget__top___2yTOa","pull-right":"widget__pull-right___1iZ6B","timepicker-hour":"widget__timepicker-hour___yKTId","timepicker-minute":"widget__timepicker-minute___3pdDA","timepicker-second":"widget__timepicker-second___3euia","separator":"widget__separator___q1q2K","datepicker":"widget__datepicker___38_rc","hour":"widget__hour___3NOXy","minute":"widget__minute___16a-Q","second":"widget__second___2EROI","active":"widget__active___3KVz9","disabled":"widget__disabled___3sPo0","old":"widget__old___38IBP","list-unstyled":"widget__list-unstyled___gwHmb","timepicker":"widget__timepicker___3eGjD","timepicker-picker":"widget__timepicker-picker___3Vueh","table-condensed":"widget__table-condensed___O9OoF","wide":"widget__wide___1L6kX","right-panel":"widget__right-panel___2bKsh"};
 
 /***/ },
 /* 124 */
@@ -5306,40 +5308,40 @@ return /******/ (function(modules) { // webpackBootstrap
 	      _classCallCheck(this, StickyWrapper);
 
 	      _get(Object.getPrototypeOf(StickyWrapper.prototype), 'constructor', this).apply(this, arguments);
-
-	      this.state = {
-	        style: {
-	          background: 'black',
-	          position: 'absolute'
-	        }
-	      };
 	    }
 
 	    _createClass(StickyWrapper, [{
-	      key: 'getScrollTop',
-	      value: function getScrollTop() {
-	        return window.pageYOffset || (document.documentElement || document.body.parentNode || document.body).scrollTop;
+	      key: 'getPickerWidth',
+	      value: function getPickerWidth(node) {
+	        return _reactDom2['default'].findDOMNode(this).querySelector(this.props.datepickerSelector).clientWidth;
 	      }
 	    }, {
-	      key: 'getOffset',
-	      value: function getOffset(node) {
-	        var gBCR = _reactDom2['default'].findDOMNode(node).getBoundingClientRect();
-	        return {
-	          left: gBCR.left + window.scrollX,
-	          top: gBCR.top + window.scrollY
-	        };
+	      key: 'getWindowWidth',
+	      value: function getWindowWidth() {
+	        return document.getElementsByTagName('body')[0].clientWidth;
 	      }
+
+	      // Position the element relative to its target
 	    }, {
 	      key: 'componentDidMount',
 	      value: function componentDidMount() {
-	        var offset = this.getOffset(this.props.target);
-	        var width = _reactDom2['default'].findDOMNode(this).querySelector(this.props.datepickerSelector).clientWidth;
-	        this.setState({
-	          style: (0, _lodash.assign)({}, this.state.style, {
-	            right: offset.left - width / 2,
-	            top: 30
-	          })
-	        });
+	        var style = {
+	          position: 'absolute',
+	          top: this.props.offset.top || 0
+	        };
+	        var targetNode = _reactDom2['default'].findDOMNode(this.props.target);
+	        var width = this.getPickerWidth();
+	        var relativeNodeLeft = targetNode.offsetLeft + targetNode.clientWidth;
+	        var windowWidth = this.getWindowWidth();
+	        var left = relativeNodeLeft + width / 2 + (this.props.offset.left || 0);
+	        // Check if the right side is out of bounds
+	        if (targetNode.getBoundingClientRect().right + width > windowWidth) {
+	          console.log('whaat');
+	          style.right = 0;
+	        } else {
+	          style.left = left;
+	        }
+	        this.setState({ style: style });
 	      }
 	    }, {
 	      key: 'render',
@@ -5353,14 +5355,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }], [{
 	      key: 'propTypes',
 	      value: {
-	        target: _react.PropTypes.node.isRequired,
-	        datepickerSelector: _react.PropTypes.string
+	        target: _react.PropTypes.object.isRequired,
+	        datepickerSelector: _react.PropTypes.string,
+	        offset: _react.PropTypes.object
 	      },
 	      enumerable: true
 	    }, {
 	      key: 'defaultProps',
 	      value: {
-	        datepickerSelector: '.bootstrap-datetimepicker-widget'
+	        datepickerSelector: '.bootstrap-datetimepicker-widget',
+	        offset: { top: 30 }
 	      },
 	      enumerable: true
 	    }]);
@@ -18115,7 +18119,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      return _react2["default"].createElement(
 	        "li",
-	        { className: "pull-left" },
+	        { className: "pull-left left-panel" },
 	        _react2["default"].createElement(_componentsDatepickerJs2["default"], {
 	          addDecade: _this.props.addDecade,
 	          addMonth: _this.props.addMonth,
@@ -18146,11 +18150,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	        { styleName: "widget wide", className: (0, _classnames2["default"])(this.props.widgetClasses) },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: "list-unstyled" },
+	          { styleName: "widget-content", className: "widget-content list-unstyled" },
 	          this.renderDatePicker(),
 	          _react2["default"].createElement(
 	            "li",
-	            { styleName: "right-side" },
+	            {
+	              className: "right-panel",
+	              styleName: "right-panel" },
 	            _react2["default"].createElement(_componentsTimeSidePanelTimeSidePanelJs2["default"], {
 	              selectedDate: this.props.selectedDate,
 	              timesShown: this.props.timesShown,
@@ -18230,6 +18236,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
 
+	var _classnames = __webpack_require__(36);
+
+	var _classnames2 = _interopRequireDefault(_classnames);
+
 	var _moment = __webpack_require__(33);
 
 	var _moment2 = _interopRequireDefault(_moment);
@@ -18265,10 +18275,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	          'li',
 	          {
 	            key: index,
-	            styleName: isSameTime ? 'selected' : '' },
+	            styleName: isSameTime ? 'selected' : '',
+	            className: (0, _classnames2['default'])({
+	              active: isSameTime
+	            }) },
 	          _react2['default'].createElement(
 	            'button',
 	            {
+	              styleName: 'btn',
 	              className: 'btn btn-link',
 	              onClick: _this.onSelectTime.bind(_this, time) },
 	            (0, _libConvertMilitaryTimeToAmpmJs2['default'])({ hour: hour, minute: minute })
@@ -18304,8 +18318,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	      return _react2['default'].createElement(
 	        'ul',
 	        {
-	          styleName: 'side-panel',
-	          className: 'list-unstyled' },
+	          className: 'list-unstyled side-panel' },
 	        this.renderTimes()
 	      );
 	    }
@@ -18332,7 +18345,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
-	module.exports = {"side-panel":"time-side-panel__side-panel___2Jhij","selected":"time-side-panel__selected___2UTOt"};
+	module.exports = {"selected":"time-side-panel__selected___2UTOt","btn":"time-side-panel__btn___3Ao1N"};
 
 /***/ },
 /* 132 */
@@ -18443,7 +18456,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        { styleName: "widget", className: (0, _classnames2["default"])(this.props.widgetClasses) },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: "list-unstyled" },
+	          { styleName: "widget-content", className: "widget-content list-unstyled" },
 	          _react2["default"].createElement(
 	            "li",
 	            null,
@@ -18568,7 +18581,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	        },
 	        _react2["default"].createElement(
 	          "ul",
-	          { className: "list-unstyled" },
+	          {
+	            styleName: "widget-content",
+	            className: "widget-content list-unstyled" },
 	          _react2["default"].createElement(
 	            "li",
 	            null,

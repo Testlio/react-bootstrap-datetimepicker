@@ -1,8 +1,9 @@
-.side-panel li {
-  padding-left: 20px;
-}
-
-.selected {
+.selected button, .selected button:focus {
   background: #eeeeee;
   border-radius: 4px;
+}
+
+.btn:focus, .btn:active {
+  outline: none;
+  text-decoration: none;
 }

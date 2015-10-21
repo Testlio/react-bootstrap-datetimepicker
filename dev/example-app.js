@@ -22,6 +22,11 @@ export default class Basic extends Component {
   render() {
     return (
       <div className="container">
+        <button style={{position: 'absolute', right: 0}} onClick={this.showDateTimeSidePicker} ref="pickerbtn">Show picker</button>
+        { this.state.isDateTimeSidePickerShown ? <DateTimePickerSide 
+          target={this.refs.pickerbtn} 
+          onClose={this.resetTimeSidePicker}
+          timesShown={[1,2,4]} /> : null }
         <div className="row">
           <div className="col-xs-12">
             <h1>React Bootstrap DateTimePicker</h1>
@@ -110,16 +115,6 @@ export default class Basic extends Component {
             <pre> 
               {'<DateTimeField mode="datetime-side" timeShown={[1,5,6,7,8,9,"10:20",11,"12:5",1317,18,19]} />'} 
             </pre>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-xs-12">
-            Wrapped el
-            <button onClick={this.showDateTimeSidePicker} ref="pickerbtn">Show picker</button>
-            { this.state.isDateTimeSidePickerShown ? <DateTimePickerSide 
-              target={this.refs.pickerbtn} 
-              onClose={this.resetTimeSidePicker}
-              timesShown={[1,2,4]} /> : null }
           </div>
         </div>
       </div>

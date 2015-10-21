@@ -8,7 +8,7 @@ import DateTimePickerYears from "./DateTimePickerYears";
 import styles from '../css/datepicker.css';
 
 @CSSModules(styles)
-export default class DatePicker extends Component {
+export default class DatesPicker extends Component {
   static propTypes = {
     subtractMonth: PropTypes.func.isRequired,
     addMonth: PropTypes.func.isRequired,

@@ -67,11 +67,23 @@
 .widget__widget___3fXFu {
   top: 0;
   left: 0;
-  margin-top: 1px;
+  margin-top: 0;
+  padding-top: 0;
   z-index: 99999 !important;
   border-radius: 4px;
-  padding: 15px;
   display: block;
+}
+
+.widget__widget___3fXFu button {
+  outline: none;
+}
+
+.widget__widget-content___3payV > li {
+  padding: 15px;
+}
+
+.widget__widget-content___3payV > li:first-child {
+  width: 230px;
 }
 
 .widget__widget___3fXFu.widget__timepicker-sbs___2jAbM {
@@ -184,7 +196,6 @@
   height: 54px;
   line-height: 54px;
   float: left;
-  margin: 2px;
   cursor: pointer;
   border-radius: 4px;
 }
@@ -230,24 +241,25 @@
 }
 
 .widget__widget___3fXFu.widget__wide___1L6kX {
-  width: 420px;
+  width: 380px;
   display: block;
   height: 280px;
 }
 
-.widget__right-side___-S7eD {
+.widget__right-panel___2bKsh {
   margin-top: 5px;
   padding: 5px;
   float: right;
-  width: 125px;
+  width: 120px;
   overflow: auto;
   height: 240px;
 }
-.time-side-panel__side-panel___2Jhij li {
-  padding-left: 20px;
-}
-
-.time-side-panel__selected___2UTOt {
+.time-side-panel__selected___2UTOt button, .time-side-panel__selected___2UTOt button:focus {
   background: #eeeeee;
   border-radius: 4px;
+}
+
+.time-side-panel__btn___3Ao1N:focus, .time-side-panel__btn___3Ao1N:active {
+  outline: none;
+  text-decoration: none;
 }
