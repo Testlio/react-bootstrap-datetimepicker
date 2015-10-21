@@ -5336,7 +5336,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	        var left = relativeNodeLeft + width / 2 + (this.props.offset.left || 0);
 	        // Check if the right side is out of bounds
 	        if (targetNode.getBoundingClientRect().right + width > windowWidth) {
-	          console.log('whaat');
 	          style.right = 0;
 	        } else {
 	          style.left = left;
