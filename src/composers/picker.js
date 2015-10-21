@@ -57,10 +57,6 @@ export default function picker(Component) {
         "bootstrap-datetimepicker-widget": true,
         "dropdown-menu": true,
         "pull-right": true
-      },
-      widgetStyle: {
-        display: "block",
-        position: "absolute"
       }
     }
 
@@ -226,10 +222,6 @@ export default function picker(Component) {
     closePicker = () => {
       this.setState({
         showPicker: false,
-        widgetStyle: assign(this.state.widgeStyle, {
-          left: -9999,
-          display: 'none'
-        })
       }, this.props.onClose);
     }
 
@@ -261,7 +253,6 @@ export default function picker(Component) {
           togglePeriod={this.togglePeriod}
           togglePicker={this.togglePicker}
           widgetClasses={this.state.classes}
-          widgetStyle={this.state.widgetStyle}
         />
       );
     }

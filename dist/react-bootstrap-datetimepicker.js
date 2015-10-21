@@ -1,13 +1,13 @@
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
-		module.exports = factory(require("react"), require("moment"), require("react-bootstrap"));
+		module.exports = factory(require("react"), require("moment"), require("react-bootstrap"), require("react-dom"));
 	else if(typeof define === 'function' && define.amd)
-		define(["react", "moment", "react-bootstrap"], factory);
+		define(["react", "moment", "react-bootstrap", "react-dom"], factory);
 	else if(typeof exports === 'object')
-		exports["react-bootstrap-datetimepicker"] = factory(require("react"), require("moment"), require("react-bootstrap"));
+		exports["react-bootstrap-datetimepicker"] = factory(require("react"), require("moment"), require("react-bootstrap"), require("react-dom"));
 	else
-		root["react-bootstrap-datetimepicker"] = factory(root["react"], root["moment"], root["react-bootstrap"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_32__, __WEBPACK_EXTERNAL_MODULE_33__, __WEBPACK_EXTERNAL_MODULE_34__) {
+		root["react-bootstrap-datetimepicker"] = factory(root["react"], root["moment"], root["react-bootstrap"], root["react-dom"]);
+})(this, function(__WEBPACK_EXTERNAL_MODULE_32__, __WEBPACK_EXTERNAL_MODULE_33__, __WEBPACK_EXTERNAL_MODULE_34__, __WEBPACK_EXTERNAL_MODULE_125__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -91,19 +91,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _datetimepickerJs2 = _interopRequireDefault(_datetimepickerJs);
 
-	var _datetimepickerSideJs = __webpack_require__(130);
+	var _datetimepickerSideJs = __webpack_require__(129);
 
 	var _datetimepickerSideJs2 = _interopRequireDefault(_datetimepickerSideJs);
 
-	var _datepickerJs = __webpack_require__(134);
+	var _datepickerJs = __webpack_require__(133);
 
 	var _datepickerJs2 = _interopRequireDefault(_datepickerJs);
 
-	var _timepickerJs = __webpack_require__(135);
+	var _timepickerJs = __webpack_require__(134);
 
 	var _timepickerJs2 = _interopRequireDefault(_timepickerJs);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
@@ -464,16 +464,15 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports) {
 
 	// https://github.com/zloirock/core-js/issues/86#issuecomment-115759028
-	var UNDEFINED = 'undefined';
-	var global = module.exports = typeof window != UNDEFINED && window.Math == Math
-	  ? window : typeof self != UNDEFINED && self.Math == Math ? self : Function('return this')();
+	var global = module.exports = typeof window != 'undefined' && window.Math == Math
+	  ? window : typeof self != 'undefined' && self.Math == Math ? self : Function('return this')();
 	if(typeof __g == 'number')__g = global; // eslint-disable-line no-undef
 
 /***/ },
 /* 14 */
 /***/ function(module, exports) {
 
-	var core = module.exports = {version: '1.2.1'};
+	var core = module.exports = {version: '1.2.2'};
 	if(typeof __e == 'number')__e = core; // eslint-disable-line no-undef
 
 /***/ },
@@ -566,7 +565,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
 	};
 	module.exports = {
-	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line no-proto
+	  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
 	    function(test, buggy, set){
 	      try {
 	        set = __webpack_require__(25)(Function.call, getDesc(Object.prototype, '__proto__').set, 2);
@@ -765,23 +764,23 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsTimepickerJs2 = _interopRequireDefault(_componentsTimepickerJs);
 
-	var _componentsModeSwitcherModeSwitcherJs = __webpack_require__(122);
+	var _componentsModeSwitcherModeSwitcherJs = __webpack_require__(120);
 
 	var _componentsModeSwitcherModeSwitcherJs2 = _interopRequireDefault(_componentsModeSwitcherModeSwitcherJs);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
-	var _cssWidgetCss = __webpack_require__(125);
+	var _cssWidgetCss = __webpack_require__(123);
 
 	var _cssWidgetCss2 = _interopRequireDefault(_cssWidgetCss);
 
-	var _composersStickyJs = __webpack_require__(126);
+	var _composersStickyJs = __webpack_require__(124);
 
 	var _composersStickyJs2 = _interopRequireDefault(_composersStickyJs);
 
-	var _composersPickerJs = __webpack_require__(129);
+	var _composersPickerJs = __webpack_require__(128);
 
 	var _composersPickerJs2 = _interopRequireDefault(_composersPickerJs);
 
@@ -854,8 +853,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        "div",
 	        {
 	          styleName: "widget datepicker",
-	          className: (0, _classnames2["default"])(this.props.widgetClasses),
-	          style: this.props.widgetStyle
+	          className: (0, _classnames2["default"])(this.props.widgetClasses)
 	        },
 	        _react2["default"].createElement(
 	          "ul",
@@ -893,7 +891,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      minDate: _react.PropTypes.object,
 	      maxDate: _react.PropTypes.object,
 	      widgetClasses: _react.PropTypes.object,
-	      widgetStyle: _react.PropTypes.object,
 	      togglePicker: _react.PropTypes.func,
 	      setSelectedHourByEvent: _react.PropTypes.func,
 	      setSelectedMinuteByEvent: _react.PropTypes.func
@@ -3593,7 +3590,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	 * @returns {function}
 	 */
 	wrapStatelessFunction = function (Component, defaultStyles, options) {
-	    return function () {
+	    var WrappedComponent = undefined;
+
+	    WrappedComponent = function () {
 	        for (var _len = arguments.length, args = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
 	            args[_key - 1] = arguments[_key];
 	        }
@@ -3626,6 +3625,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	        return _react2['default'].createElement('noscript');
 	    };
+
+	    (0, _lodashObjectAssign3['default'])(WrappedComponent, Component);
+
+	    return WrappedComponent;
 	};
 
 	exports['default'] = wrapStatelessFunction;
@@ -4498,15 +4501,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactBootstrap = __webpack_require__(34);
 
-	var _DateTimePickerMinutes = __webpack_require__(120);
+	var _DateTimePickerMinutes = __webpack_require__(118);
 
 	var _DateTimePickerMinutes2 = _interopRequireDefault(_DateTimePickerMinutes);
 
-	var _DateTimePickerHours = __webpack_require__(124);
+	var _DateTimePickerHours = __webpack_require__(122);
 
 	var _DateTimePickerHours2 = _interopRequireDefault(_DateTimePickerHours);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
@@ -4749,10 +4752,9 @@ return /******/ (function(modules) { // webpackBootstrap
 /***/ function(module, exports, __webpack_require__) {
 
 	// 19.1.2.1 Object.assign(target, source, ...)
-	var toObject = __webpack_require__(104)
-	  , IObject  = __webpack_require__(8)
-	  , enumKeys = __webpack_require__(118)
-	  , has      = __webpack_require__(119);
+	var $        = __webpack_require__(5)
+	  , toObject = __webpack_require__(104)
+	  , IObject  = __webpack_require__(8);
 
 	// should work with symbols and should have deterministic property order (V8 bug)
 	module.exports = __webpack_require__(15)(function(){
@@ -4764,51 +4766,27 @@ return /******/ (function(modules) { // webpackBootstrap
 	  A[S] = 7;
 	  K.split('').forEach(function(k){ B[k] = k; });
 	  return a({}, A)[S] != 7 || Object.keys(a({}, B)).join('') != K;
-	}) ? function assign(target, source){   // eslint-disable-line no-unused-vars
-	  var T = toObject(target)
-	    , l = arguments.length
-	    , i = 1;
-	  while(l > i){
-	    var S      = IObject(arguments[i++])
-	      , keys   = enumKeys(S)
+	}) ? function assign(target, source){ // eslint-disable-line no-unused-vars
+	  var T     = toObject(target)
+	    , $$    = arguments
+	    , $$len = $$.length
+	    , index = 1
+	    , getKeys    = $.getKeys
+	    , getSymbols = $.getSymbols
+	    , isEnum     = $.isEnum;
+	  while($$len > index){
+	    var S      = IObject($$[index++])
+	      , keys   = getSymbols ? getKeys(S).concat(getSymbols(S)) : getKeys(S)
 	      , length = keys.length
 	      , j      = 0
 	      , key;
-	    while(length > j)if(has(S, key = keys[j++]))T[key] = S[key];
+	    while(length > j)if(isEnum.call(S, key = keys[j++]))T[key] = S[key];
 	  }
 	  return T;
 	} : Object.assign;
 
 /***/ },
 /* 118 */
-/***/ function(module, exports, __webpack_require__) {
-
-	// all enumerable object keys, includes symbols
-	var $ = __webpack_require__(5);
-	module.exports = function(it){
-	  var keys       = $.getKeys(it)
-	    , getSymbols = $.getSymbols;
-	  if(getSymbols){
-	    var symbols = getSymbols(it)
-	      , isEnum  = $.isEnum
-	      , i       = 0
-	      , key;
-	    while(symbols.length > i)if(isEnum.call(it, key = symbols[i++]))keys.push(key);
-	  }
-	  return keys;
-	};
-
-/***/ },
-/* 119 */
-/***/ function(module, exports) {
-
-	var hasOwnProperty = {}.hasOwnProperty;
-	module.exports = function(it, key){
-	  return hasOwnProperty.call(it, key);
-	};
-
-/***/ },
-/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -4833,11 +4811,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactBootstrap = __webpack_require__(34);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
-	var _modeSwitcherModeSwitcherJs = __webpack_require__(122);
+	var _modeSwitcherModeSwitcherJs = __webpack_require__(120);
 
 	var _modeSwitcherModeSwitcherJs2 = _interopRequireDefault(_modeSwitcherModeSwitcherJs);
 
@@ -4962,7 +4940,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 121 */
+/* 119 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -4975,7 +4953,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	};
 
 /***/ },
-/* 122 */
+/* 120 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5004,7 +4982,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _reactCssModules2 = _interopRequireDefault(_reactCssModules);
 
-	var _modeSwitcherCss = __webpack_require__(123);
+	var _modeSwitcherCss = __webpack_require__(121);
 
 	var _modeSwitcherCss2 = _interopRequireDefault(_modeSwitcherCss);
 
@@ -5054,14 +5032,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 123 */
+/* 121 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"picker-switch":"mode-switcher__picker-switch___1x61i"};
 
 /***/ },
-/* 124 */
+/* 122 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -5082,11 +5060,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react = __webpack_require__(32);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
-	var _componentsModeSwitcherModeSwitcherJs = __webpack_require__(122);
+	var _componentsModeSwitcherModeSwitcherJs = __webpack_require__(120);
 
 	var _componentsModeSwitcherModeSwitcherJs2 = _interopRequireDefault(_componentsModeSwitcherModeSwitcherJs);
 
@@ -5283,14 +5261,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 125 */
+/* 123 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"widget":"widget__widget___3fXFu","timepicker-sbs":"widget__timepicker-sbs___2jAbM","bottom":"widget__bottom___-6Tde","top":"widget__top___2yTOa","pull-right":"widget__pull-right___1iZ6B","timepicker-hour":"widget__timepicker-hour___yKTId","timepicker-minute":"widget__timepicker-minute___3pdDA","timepicker-second":"widget__timepicker-second___3euia","separator":"widget__separator___q1q2K","datepicker":"widget__datepicker___38_rc","hour":"widget__hour___3NOXy","minute":"widget__minute___16a-Q","second":"widget__second___2EROI","active":"widget__active___3KVz9","disabled":"widget__disabled___3sPo0","old":"widget__old___38IBP","list-unstyled":"widget__list-unstyled___gwHmb","timepicker":"widget__timepicker___3eGjD","timepicker-picker":"widget__timepicker-picker___3Vueh","table-condensed":"widget__table-condensed___O9OoF","wide":"widget__wide___1L6kX","right-side":"widget__right-side___-S7eD"};
 
 /***/ },
-/* 126 */
+/* 124 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -5303,8 +5281,6 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classCallCheck = __webpack_require__(30)['default'];
 
-	var _extends = __webpack_require__(113)['default'];
-
 	var _interopRequireDefault = __webpack_require__(31)['default'];
 
 	Object.defineProperty(exports, '__esModule', {
@@ -5316,7 +5292,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _lodash = __webpack_require__(127);
+	var _reactDom = __webpack_require__(125);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _lodash = __webpack_require__(126);
 
 	function sticky(Component) {
 	  return (function (_Component) {
@@ -5343,7 +5323,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	      key: 'getOffset',
 	      value: function getOffset(node) {
-	        var gBCR = _react2['default'].findDOMNode(node).getBoundingClientRect();
+	        var gBCR = _reactDom2['default'].findDOMNode(node).getBoundingClientRect();
 	        return {
 	          left: gBCR.left + window.scrollX,
 	          top: gBCR.top + window.scrollY
@@ -5353,9 +5333,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	      key: 'componentDidMount',
 	      value: function componentDidMount() {
 	        var offset = this.getOffset(this.props.target);
-	        var width = _react2['default'].findDOMNode(this.refs.karuperse).querySelector('.dropdown-menu').clientWidth;
+	        var width = _reactDom2['default'].findDOMNode(this).querySelector(this.props.datepickerSelector).clientWidth;
 	        this.setState({
-	          style: (0, _lodash.assign)(this.state.style, {
+	          style: (0, _lodash.assign)({}, this.state.style, {
 	            right: offset.left - width / 2,
 	            top: 30
 	          })
@@ -5367,13 +5347,20 @@ return /******/ (function(modules) { // webpackBootstrap
 	        return _react2['default'].createElement(
 	          'div',
 	          { style: this.state.style },
-	          _react2['default'].createElement(Component, _extends({}, this.props, { ref: 'karuperse' }))
+	          _react2['default'].createElement(Component, this.props)
 	        );
 	      }
 	    }], [{
 	      key: 'propTypes',
 	      value: {
-	        target: _react.PropTypes.node.isRequired
+	        target: _react.PropTypes.node.isRequired,
+	        datepickerSelector: _react.PropTypes.string
+	      },
+	      enumerable: true
+	    }, {
+	      key: 'defaultProps',
+	      value: {
+	        datepickerSelector: '.bootstrap-datetimepicker-widget'
 	      },
 	      enumerable: true
 	    }]);
@@ -5385,7 +5372,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 127 */
+/* 125 */
+/***/ function(module, exports) {
+
+	module.exports = __WEBPACK_EXTERNAL_MODULE_125__;
+
+/***/ },
+/* 126 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(module, global) {/**
@@ -17740,10 +17733,10 @@ return /******/ (function(modules) { // webpackBootstrap
 	  }
 	}.call(this));
 
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(128)(module), (function() { return this; }())))
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(127)(module), (function() { return this; }())))
 
 /***/ },
-/* 128 */
+/* 127 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -17759,7 +17752,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 /***/ },
-/* 129 */
+/* 128 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -17789,9 +17782,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _lodash = __webpack_require__(127);
+	var _lodash = __webpack_require__(126);
 
-	var _constantsConstantsJs = __webpack_require__(121);
+	var _constantsConstantsJs = __webpack_require__(119);
 
 	var _constantsConstantsJs2 = _interopRequireDefault(_constantsConstantsJs);
 
@@ -17816,10 +17809,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	          "bootstrap-datetimepicker-widget": true,
 	          "dropdown-menu": true,
 	          "pull-right": true
-	        },
-	        widgetStyle: {
-	          display: "block",
-	          position: "absolute"
 	        }
 	      };
 
@@ -17961,11 +17950,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      this.closePicker = function () {
 	        _this.setState({
-	          showPicker: false,
-	          widgetStyle: (0, _lodash.assign)(_this.state.widgeStyle, {
-	            left: -9999,
-	            display: 'none'
-	          })
+	          showPicker: false
 	        }, _this.props.onClose);
 	      };
 	    }
@@ -18002,8 +17987,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          subtractYear: this.subtractYear,
 	          togglePeriod: this.togglePeriod,
 	          togglePicker: this.togglePicker,
-	          widgetClasses: this.state.classes,
-	          widgetStyle: this.state.widgetStyle
+	          widgetClasses: this.state.classes
 	        }));
 	      }
 	    }, {
@@ -18063,7 +18047,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 130 */
+/* 129 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18098,19 +18082,19 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsDatepickerJs2 = _interopRequireDefault(_componentsDatepickerJs);
 
-	var _componentsTimeSidePanelTimeSidePanelJs = __webpack_require__(131);
+	var _componentsTimeSidePanelTimeSidePanelJs = __webpack_require__(130);
 
 	var _componentsTimeSidePanelTimeSidePanelJs2 = _interopRequireDefault(_componentsTimeSidePanelTimeSidePanelJs);
 
-	var _cssWidgetCss = __webpack_require__(125);
+	var _cssWidgetCss = __webpack_require__(123);
 
 	var _cssWidgetCss2 = _interopRequireDefault(_cssWidgetCss);
 
-	var _composersPickerJs = __webpack_require__(129);
+	var _composersPickerJs = __webpack_require__(128);
 
 	var _composersPickerJs2 = _interopRequireDefault(_composersPickerJs);
 
-	var _composersStickyJs = __webpack_require__(126);
+	var _composersStickyJs = __webpack_require__(124);
 
 	var _composersStickyJs2 = _interopRequireDefault(_composersStickyJs);
 
@@ -18159,7 +18143,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "div",
-	        { styleName: "widget wide", className: (0, _classnames2["default"])(this.props.widgetClasses), style: this.props.widgetStyle },
+	        { styleName: "widget wide", className: (0, _classnames2["default"])(this.props.widgetClasses) },
 	        _react2["default"].createElement(
 	          "ul",
 	          { className: "list-unstyled" },
@@ -18204,7 +18188,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      minDate: _react.PropTypes.object,
 	      maxDate: _react.PropTypes.object,
 	      widgetClasses: _react.PropTypes.object,
-	      widgetStyle: _react.PropTypes.object,
 	      togglePicker: _react.PropTypes.func,
 	      timesShown: _react.PropTypes.array.isRequired
 	    },
@@ -18220,7 +18203,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 131 */
+/* 130 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -18251,11 +18234,11 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _moment2 = _interopRequireDefault(_moment);
 
-	var _timeSidePanelCss = __webpack_require__(132);
+	var _timeSidePanelCss = __webpack_require__(131);
 
 	var _timeSidePanelCss2 = _interopRequireDefault(_timeSidePanelCss);
 
-	var _libConvertMilitaryTimeToAmpmJs = __webpack_require__(133);
+	var _libConvertMilitaryTimeToAmpmJs = __webpack_require__(132);
 
 	var _libConvertMilitaryTimeToAmpmJs2 = _interopRequireDefault(_libConvertMilitaryTimeToAmpmJs);
 
@@ -18345,14 +18328,14 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 132 */
+/* 131 */
 /***/ function(module, exports) {
 
 	// removed by extract-text-webpack-plugin
 	module.exports = {"side-panel":"time-side-panel__side-panel___2Jhij","selected":"time-side-panel__selected___2UTOt"};
 
 /***/ },
-/* 133 */
+/* 132 */
 /***/ function(module, exports) {
 
 	// Converts 24 time format to 1-12am/pm
@@ -18384,7 +18367,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports['default'];
 
 /***/ },
-/* 134 */
+/* 133 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18431,15 +18414,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsDatepickerJs2 = _interopRequireDefault(_componentsDatepickerJs);
 
-	var _cssWidgetCss = __webpack_require__(125);
+	var _cssWidgetCss = __webpack_require__(123);
 
 	var _cssWidgetCss2 = _interopRequireDefault(_cssWidgetCss);
 
-	var _composersStickyJs = __webpack_require__(126);
+	var _composersStickyJs = __webpack_require__(124);
 
 	var _composersStickyJs2 = _interopRequireDefault(_composersStickyJs);
 
-	var _composersPickerJs = __webpack_require__(129);
+	var _composersPickerJs = __webpack_require__(128);
 
 	var _composersPickerJs2 = _interopRequireDefault(_composersPickerJs);
 
@@ -18457,7 +18440,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    value: function render() {
 	      return _react2["default"].createElement(
 	        "div",
-	        { styleName: "widget", className: (0, _classnames2["default"])(this.props.widgetClasses), style: this.props.widgetStyle },
+	        { styleName: "widget", className: (0, _classnames2["default"])(this.props.widgetClasses) },
 	        _react2["default"].createElement(
 	          "ul",
 	          { className: "list-unstyled" },
@@ -18518,7 +18501,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	module.exports = exports["default"];
 
 /***/ },
-/* 135 */
+/* 134 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -18553,15 +18536,15 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _componentsTimepickerJs2 = _interopRequireDefault(_componentsTimepickerJs);
 
-	var _cssWidgetCss = __webpack_require__(125);
+	var _cssWidgetCss = __webpack_require__(123);
 
 	var _cssWidgetCss2 = _interopRequireDefault(_cssWidgetCss);
 
-	var _composersPickerJs = __webpack_require__(129);
+	var _composersPickerJs = __webpack_require__(128);
 
 	var _composersPickerJs2 = _interopRequireDefault(_composersPickerJs);
 
-	var _composersStickyJs = __webpack_require__(126);
+	var _composersStickyJs = __webpack_require__(124);
 
 	var _composersStickyJs2 = _interopRequireDefault(_composersStickyJs);
 
@@ -18581,8 +18564,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	        "div",
 	        {
 	          styleName: "widget",
-	          className: (0, _classnames2["default"])(this.props.widgetClasses),
-	          style: this.props.widgetStyle
+	          className: (0, _classnames2["default"])(this.props.widgetClasses)
 	        },
 	        _react2["default"].createElement(
 	          "ul",
@@ -18617,7 +18599,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	      addMinute: _react.PropTypes.func.isRequired,
 	      togglePeriod: _react.PropTypes.func.isRequired,
 	      widgetClasses: _react.PropTypes.object,
-	      widgetStyle: _react.PropTypes.object,
 	      togglePicker: _react.PropTypes.func,
 	      setSelectedHourByEvent: _react.PropTypes.func,
 	      setSelectedMinuteByEvent: _react.PropTypes.func

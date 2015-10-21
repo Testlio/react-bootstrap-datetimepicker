@@ -40,7 +40,6 @@ class DateTimePickerSide extends Component {
     minDate: PropTypes.object,
     maxDate: PropTypes.object,
     widgetClasses: PropTypes.object,
-    widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
     timesShown: PropTypes.array.isRequired
   }
@@ -76,7 +75,7 @@ class DateTimePickerSide extends Component {
 
   render() {
     return (
-      <div styleName="widget wide" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
+      <div styleName="widget wide" className={classnames(this.props.widgetClasses)} >
         <ul className="list-unstyled">
           {this.renderDatePicker()}
           <li styleName="right-side">

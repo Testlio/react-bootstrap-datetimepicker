@@ -71,6 +71,7 @@
   z-index: 99999 !important;
   border-radius: 4px;
   padding: 15px;
+  display: block;
 }
 
 .widget__widget___3fXFu.widget__timepicker-sbs___2jAbM {
@@ -230,6 +231,7 @@
 
 .widget__widget___3fXFu.widget__wide___1L6kX {
   width: 420px;
+  display: block;
   height: 280px;
 }
 

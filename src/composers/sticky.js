@@ -1,10 +1,16 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { assign } from 'lodash';
 
 export default function sticky(Component) {
   return class StickyWrapper extends Component {
     static propTypes = {
-      target: PropTypes.node.isRequired
+      target: PropTypes.node.isRequired,
+      datepickerSelector: PropTypes.string
+    }
+
+    static defaultProps = {
+      datepickerSelector: '.bootstrap-datetimepicker-widget'
     }
 
     state = {
@@ -19,7 +25,7 @@ export default function sticky(Component) {
     }
 
     getOffset(node) {
-      let gBCR = React.findDOMNode(node).getBoundingClientRect();
+      let gBCR = ReactDOM.findDOMNode(node).getBoundingClientRect();
       return {
         left: gBCR.left + window.scrollX,
         top: gBCR.top + window.scrollY
@@ -28,9 +34,9 @@ export default function sticky(Component) {
 
     componentDidMount() {
       const offset = this.getOffset(this.props.target);
-      const width  = React.findDOMNode(this.refs.karuperse).querySelector('.dropdown-menu').clientWidth;
+      const width  = ReactDOM.findDOMNode(this).querySelector(this.props.datepickerSelector).clientWidth;
       this.setState({
-        style: assign(this.state.style, {
+        style: assign({}, this.state.style, {
           right: offset.left - width / 2,
           top: 30
         })
@@ -40,7 +46,7 @@ export default function sticky(Component) {
     render() {
       return (
         <div style={this.state.style}>
-          <Component {...this.props} ref="karuperse"/>
+          <Component {...this.props} />
         </div>
       );
     }

@@ -41,7 +41,6 @@ class DateTimePicker extends Component {
     minDate: PropTypes.object,
     maxDate: PropTypes.object,
     widgetClasses: PropTypes.object,
-    widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
     setSelectedHourByEvent: PropTypes.func,
     setSelectedMinuteByEvent: PropTypes.func
@@ -103,7 +102,6 @@ class DateTimePicker extends Component {
       <div 
         styleName="widget datepicker"
         className={classnames(this.props.widgetClasses)} 
-        style={this.props.widgetStyle}
         >
         <ul className="list-unstyled">
           <ModeSwitcher onSwitch={this.props.togglePicker} showTimePicker={this.props.showTimePicker} /> 

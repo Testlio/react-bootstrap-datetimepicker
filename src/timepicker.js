@@ -20,7 +20,6 @@ class DateTimePicker extends Component {
     addMinute: PropTypes.func.isRequired,
     togglePeriod: PropTypes.func.isRequired,
     widgetClasses: PropTypes.object,
-    widgetStyle: PropTypes.object,
     togglePicker: PropTypes.func,
     setSelectedHourByEvent: PropTypes.func,
     setSelectedMinuteByEvent: PropTypes.func
@@ -31,7 +30,6 @@ class DateTimePicker extends Component {
       <div 
         styleName="widget"
         className={classnames(this.props.widgetClasses)} 
-        style={this.props.widgetStyle}
         >
         <ul className="list-unstyled">
           <li>

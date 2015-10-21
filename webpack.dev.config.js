@@ -44,7 +44,7 @@ module.exports = {
   devtool: 'eval-source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin('app.css', { allChunks: true }),
+    new ExtractTextPlugin('styles.css', { allChunks: true }),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, '/dev/index.html')
      })

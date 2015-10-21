@@ -9,6 +9,7 @@
   z-index: 99999 !important;
   border-radius: 4px;
   padding: 15px;
+  display: block;
 }
 
 .widget.timepicker-sbs {
@@ -168,6 +169,7 @@
 
 .widget.wide {
   width: 420px;
+  display: block;
   height: 280px;
 }
 

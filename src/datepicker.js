@@ -38,7 +38,7 @@ class DatePicker extends Component {
 
   render() {
     return (
-      <div styleName="widget" className={classnames(this.props.widgetClasses)} style={this.props.widgetStyle}>
+      <div styleName="widget" className={classnames(this.props.widgetClasses)} >
         <ul className="list-unstyled">
           <li>
             <DatesPicker

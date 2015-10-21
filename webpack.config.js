@@ -20,6 +20,7 @@ module.exports = {
   externals: {
     "react": "react",
     "react-bootstrap": "react-bootstrap",
+    "react-dom": "react-dom",
     "moment": "moment"
   },
 
