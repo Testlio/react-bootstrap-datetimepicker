@@ -14,9 +14,10 @@ export default class TimeSidePanel extends Component {
     selectedDate: PropTypes.object.isRequired
   }
 
-  onSelectTime(time) {
-    let { hour, minute } = this.destructTime(time)
-    let newDate = this.props.selectedDate.clone();
+  onSelectTime(time, e) {
+    e.preventDefault();
+    const { hour, minute } = this.destructTime(time)
+    const newDate = this.props.selectedDate.clone();
     this.props.setSelectedDate(
       newDate.hour(hour).minute(minute)
     );
