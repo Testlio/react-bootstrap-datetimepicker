@@ -18293,7 +18293,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	  _createClass(TimeSidePanel, [{
 	    key: 'onSelectTime',
-	    value: function onSelectTime(time) {
+	    value: function onSelectTime(time, e) {
+	      e.preventDefault();
+
 	      var _destructTime2 = this.destructTime(time);
 
 	      var hour = _destructTime2.hour;
