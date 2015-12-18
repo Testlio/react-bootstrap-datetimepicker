@@ -1,6 +1,6 @@
 {
   "name": "@testlio/react-bootstrap-datetimepicker",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A bootstrap datetime picker component for React.js",
   "homepage": "http://dev.quri.com/react-bootstrap-datetimepicker/",
   "repository": {
