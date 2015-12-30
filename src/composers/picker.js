@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from "react";
 import moment from "moment";
 
-import { assign } from 'lodash';
+import assign from 'object-assign';
 
 import Constants from "../constants/constants.js";
 

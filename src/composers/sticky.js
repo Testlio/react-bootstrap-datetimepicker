@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
-import { assign } from 'lodash';
+import assign from 'object-assign';
 
 export default function sticky(Component) {
   return class StickyWrapper extends Component {
