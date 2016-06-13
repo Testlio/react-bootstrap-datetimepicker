@@ -176,12 +176,6 @@
   background: #eeeeee;
   cursor: pointer;
 }
-.widget__widget___3jYJp td.widget__active___1RGfN,
-.widget__widget___3jYJp td.widget__active___1RGfN:hover {
-  background-color: #428bca;
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-}
 
 .widget__widget___3jYJp td.widget__disabled___16A5g,
 .widget__widget___3jYJp td.widget__disabled___16A5g:hover {
@@ -198,16 +192,6 @@
   float: left;
   cursor: pointer;
   border-radius: 4px;
-}
-
-.widget__widget___3jYJp td span:hover {
-  background: #eeeeee;
-}
-
-.widget__widget___3jYJp td span.widget__active___1RGfN {
-  background-color: #428bca;
-  color: #fff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
 }
 
 .widget__widget___3jYJp td span.widget__old___1av5n {
