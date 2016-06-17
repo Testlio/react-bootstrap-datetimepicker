@@ -1,6 +1,6 @@
 {
   "name": "@testlio/react-bootstrap-datetimepicker",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "A bootstrap datetime picker component for React.js",
   "homepage": "http://dev.quri.com/react-bootstrap-datetimepicker/",
   "repository": {
@@ -23,12 +23,6 @@
   ],
   "author": "Loïc CHOLLIER <loic@chollier.com>",
   "license": "MIT",
-  "peerDependencies": {
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5",
-    "moment": "^2.10.6",
-    "react-bootstrap": "^0.28.1"
-  },
   "jest": {
     "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
     "unmockedModulePathPatterns": [
@@ -80,9 +74,9 @@
     "lodash": "^3.10.1",
     "moment": "^2.10.6",
     "object-assign": "^4.0.1",
-    "react": "^0.14.5",
-    "react-bootstrap": "^0.28.1",
+    "react": "^15.0.1",
+    "react-bootstrap": "^0.29.4",
     "react-css-modules": "^3.6.3",
-    "react-dom": "^0.14.5"
+    "react-dom": "^15.0.1"
   }
 }
