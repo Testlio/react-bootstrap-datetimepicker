@@ -4,7 +4,7 @@ import classnames from "classnames";
 import styles from '../css/date-time-picker-days.css';
 import CSSModules from 'react-css-modules';
 import NextPrevChanger from './next-prev-changer/next-prev-changer.js'
- 
+
 @CSSModules(styles, { allowMultiple: true })
 export default class DateTimePickerDays extends Component {
   static propTypes = {
@@ -35,12 +35,13 @@ export default class DateTimePickerDays extends Component {
     month = this.props.viewDate.month();
     prevMonth = this.props.viewDate.clone().subtract(1, "months");
     days = prevMonth.daysInMonth();
-    prevMonth.date(days).startOf("week");
+    prevMonth.date(days).startOf("isoweek");
     nextMonth = moment(prevMonth).clone().add(42, "d");
     minDate = this.props.minDate ? this.props.minDate.clone().subtract(1, "days") : this.props.minDate;
     maxDate = this.props.maxDate ? this.props.maxDate.clone() : this.props.maxDate;
     html = [];
     cells = [];
+
     while (prevMonth.isBefore(nextMonth)) {
       let classes = {
         day: true
@@ -73,12 +74,12 @@ export default class DateTimePickerDays extends Component {
       }
 
       cells.push(
-        <td key={prevMonth.month() + "-" + prevMonth.date()} 
-            className={classnames(classes)} 
+        <td key={prevMonth.month() + "-" + prevMonth.date()}
+            className={classnames(classes)}
             styleName={classnames(classes)}
             onClick={this.handleDateClick.bind(this, !!classes.disabled)}>{prevMonth.date()}</td>
       );
-      if (prevMonth.weekday() === moment().endOf("week").weekday()) {
+      if (prevMonth.weekday() === moment().endOf("isoweek").weekday()) {
         row = <tr key={prevMonth.month() + "-" + prevMonth.date()}>{cells}</tr>;
         html.push(row);
         cells = [];
@@ -100,13 +101,13 @@ export default class DateTimePickerDays extends Component {
               {moment.months()[this.props.viewDate.month()]} {this.props.viewDate.year()}
             </NextPrevChanger>
             <tr styleName="day-of-week">
-              <th>Su</th>
               <th>Mo</th>
               <th>Tu</th>
               <th>We</th>
               <th>Th</th>
               <th>Fr</th>
               <th>Sa</th>
+              <th>Su</th>
             </tr>
           </thead>
 
