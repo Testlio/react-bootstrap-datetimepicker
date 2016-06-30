@@ -7462,11 +7462,6 @@ return /******/ (function(modules) { // webpackBootstrap
 	              _react2.default.createElement(
 	                "th",
 	                null,
-	                "Su"
-	              ),
-	              _react2.default.createElement(
-	                "th",
-	                null,
 	                "Mo"
 	              ),
 	              _react2.default.createElement(
@@ -7493,6 +7488,11 @@ return /******/ (function(modules) { // webpackBootstrap
 	                "th",
 	                null,
 	                "Sa"
+	              ),
+	              _react2.default.createElement(
+	                "th",
+	                null,
+	                "Su"
 	              )
 	            )
 	          ),
@@ -7540,12 +7540,13 @@ return /******/ (function(modules) { // webpackBootstrap
 	    month = _this2.props.viewDate.month();
 	    prevMonth = _this2.props.viewDate.clone().subtract(1, "months");
 	    days = prevMonth.daysInMonth();
-	    prevMonth.date(days).startOf("week");
+	    prevMonth.date(days).startOf("isoweek");
 	    nextMonth = (0, _moment2.default)(prevMonth).clone().add(42, "d");
 	    minDate = _this2.props.minDate ? _this2.props.minDate.clone().subtract(1, "days") : _this2.props.minDate;
 	    maxDate = _this2.props.maxDate ? _this2.props.maxDate.clone() : _this2.props.maxDate;
 	    html = [];
 	    cells = [];
+
 	    while (prevMonth.isBefore(nextMonth)) {
 	      var classes = {
 	        day: true
@@ -7585,7 +7586,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	          onClick: _this2.handleDateClick.bind(_this2, !!classes.disabled) },
 	        prevMonth.date()
 	      ));
-	      if (prevMonth.weekday() === (0, _moment2.default)().endOf("week").weekday()) {
+	      if (prevMonth.weekday() === (0, _moment2.default)().endOf("isoweek").weekday()) {
 	        row = _react2.default.createElement(
 	          "tr",
 	          { key: prevMonth.month() + "-" + prevMonth.date() },
